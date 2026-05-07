@@ -41,6 +41,52 @@ nav {
     transition: 0.3s;
 }
 
+.menu li a:hover {
+    background-color: gold;
+    border-radius: 5px;
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #555;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 150px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.dropdown .submenu li {
+    margin: 0;
+}
+
+.dropdown .submenu li a {
+    display: block;
+    padding: 12px 15px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.dropdown .submenu li a:hover {
+    background-color: gold;
+    border-radius: 0;
+}
+
 .hero {
     display: flex;
     justify-content: space-between;
