@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Persona.Css">
+    <link rel="icon" href="Logo 2.png" type="image/png">
+    <title>Gestión de Personas</title>
+</head>
+<body>
+<nav>
+  <ul class="menu">
+    <li class="logo">
+      <img src="Logo 2.png" alt="Logo">
+    </li>
+    <li><a href="Inicio.html">Inicio</a></li>
+    <li><a href="Persona.Html">Personas</a></li>
+    <li><a href="Mesas.Html">Mesas</a></li>
+    <li><a href="Mesas 2.Html">Gestion de Mesas</a></li>
+    <li><a href="Menu.html">Menú</a></li>
+    <li><a href="Productos.html">Productos</a></li>
+    <li><a href="Factura.HTML">Facturas</a></li>
+    <li><a href="Pedidos.Html">Pedidos</a></li>
+    <li class="right"><a href="Inicio de Sesion.Html">Login</a></li>
+    <li><a href="Registro.Html">Registro</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-texto">
+    <h1>Gestión de Facturas</h1>
+    <p>Administra la información de las facturas generadas</p>
+  </div>
+  <div class="hero-boton">
+    <a href="Agregar Factura.Html" class="btn">+ Agregar factura</a>
+  </div>
+</section>
+<section class="panel">
+  <div class="filtros">
+    <h3>Filtros de Búsqueda</h3>
+    <div class="fila-filtros">
+      <div>
+        <label>Buscar</label>
+        <input type="text" placeholder="Documento Cliente">
+      </div>
+      <button class="btn-buscar">Buscar</button>
+    </div>
+  </div>
+  <div class="tabla">
+    <h3>Listado de Facturas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Factura</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Id Mesa</th>
+          <th>Id Mesero</th>
+          <th>Documento Cliente</th>
+          <th>Cliente</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1001</td>
+          <td>12/02/26</td>
+          <td>10:34:50</td>
+          <td>1</td>
+          <td>1</td>
+          <td>103556783767</td>
+          <td>Juan Perez</td>
+          <td>35000</td>
+          <td>
+            <button class="edit">✏</button>
+            <button class="delete">🗑</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</body>
+</html>

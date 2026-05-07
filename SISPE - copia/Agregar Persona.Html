@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Agregar Persona.Css">
+    <link rel="icon" href="Logo 2.png" type="image/png">
+    <title>Agregar Persona</title>
+</head>
+<body>
+<nav>
+  <ul class="menu">
+    <li class="logo">
+      <img src="Logo 2.png" alt="Logo">
+    </li>
+    <li><a href="Inicio.html">Inicio</a></li>
+    <li><a href="Persona.Html">Personas</a></li>
+    <li><a href="Mesas.Html">Mesas</a></li>
+    <li><a href="Mesas 2.Html">Gestion de Mesas</a></li>
+    <li><a href="Menu.html">Menú</a></li>
+    <li><a href="Productos.html">Productos</a></li>
+    <li><a href="Factura.HTML">Facturas</a></li>
+    <li><a href="Pedidos.Html">Pedidos</a></li>
+    <li class="right"><a href="Inicio de Sesion.Html">Login</a></li>
+    <li><a href="Registro.Html">Registro</a></li>
+  </ul>
+</nav>
+<section class="formulario">
+  <h2>Registrar Nueva Persona</h2>
+  <form>
+    <div class="grid-form">
+      <div>
+        <label for="doc">Tipo de Documento</label>
+        <select id="doc">
+          <option>Cédula de Ciudadanía</option>
+          <option>Tarjeta de Identidad</option>
+          <option>Cédula de Extranjería</option>
+        </select>
+      </div>
+      <div>
+        <label for="rol">Rol</label>
+        <select id="rol">
+          <option>Administrador</option>
+          <option>Empleado</option>
+        </select>
+      </div>
+      <div>
+        <label for="id">Número de Identificación</label>
+        <input type="text" id="id">
+      </div>
+      <div>
+        <label for="nombre1">Primer Nombre</label>
+        <input type="text" id="nombre1">
+      </div>
+      <div>
+        <label for="nombre2">Segundo Nombre</label>
+        <input type="text" id="nombre2">
+      </div>
+      <div>
+        <label for="apellido1">Primer Apellido</label>
+        <input type="text" id="apellido1">
+      </div>
+      <div>
+        <label for="apellido2">Segundo Apellido</label>
+        <input type="text" id="apellido2">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email">
+      </div>
+      <div>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password">
+      </div>
+      <div>
+        <label for="confirm">Confirmar Contraseña</label>
+        <input type="password" id="confirm">
+      </div>
+    </div>
+    <div class="acciones">
+      <a href="Persona.Html"><button class="cancelar" type="button">Cancelar</button></a>
+      <a href="Persona.Html"><button class="guardar" type="submit">Guardar</button></a>
+    </div>
+  </form>
+</section>
+</body>
+</html>

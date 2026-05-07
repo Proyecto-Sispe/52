@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    width: 100%;
+    background-color: gray;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.logo {
+    margin-right: 30px;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.menu li a {
+    font-weight: bold;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu li a:hover {
+    background-color: gold;
+    border-radius: 5px;
+}
+
+.formulario {
+    background-color: gray;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid gold;
+    width: 600px;
+    margin: 80px auto;
+    padding: 30px;
+}
+
+.formulario h2 {
+    color: gold;
+    margin-bottom: 20px;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    background-color: white;
+    color: gray;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+}
+
+.acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancelar {
+    background-color: #555;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.guardar {
+    background-color: gold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

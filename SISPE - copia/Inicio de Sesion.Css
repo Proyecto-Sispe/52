@@ -1,0 +1,101 @@
+body {
+    margin: 0; 
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    width: 100%;
+    background-color: gray;
+}
+
+.menu {
+    display: flex; 
+    align-items: center;
+    list-style: none; 
+    margin: 0;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.logo {
+    margin-right: 30px;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.menu li a {
+    font-weight: bold;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+h1 {
+    text-align: center;
+    color: gold;
+}
+
+form {
+    background-color: gray;
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    border-radius: 10px;
+    border: 1px solid gold;
+    width: 500px;
+    margin: 50px auto; 
+    padding: 30px;
+}
+
+.grid-inputs {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    background-color: white;
+    color: gray;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+}
+
+.botones {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+}
+
+.botones button {
+    background-color: gold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botones a {
+    color: silver;
+    font-weight: bold;
+    text-decoration: none;
+}

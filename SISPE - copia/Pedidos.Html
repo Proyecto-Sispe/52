@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Persona.Css">
+    <link rel="icon" href="Logo 2.png" type="image/png">
+    <title>Gestión de Personas</title>
+</head>
+<body>
+<nav>
+  <ul class="menu">
+    <li class="logo">
+      <img src="Logo 2.png" alt="Logo">
+    </li>
+    <li><a href="Inicio.html">Inicio</a></li>
+    <li><a href="Persona.Html">Personas</a></li>
+    <li><a href="Mesas.Html">Mesas</a></li>
+    <li><a href="Mesas 2.Html">Gestion de Mesas</a></li>
+    <li><a href="Menu.html">Menú</a></li>
+    <li><a href="Productos.html">Productos</a></li>
+    <li><a href="Factura.HTML">Facturas</a></li>
+    <li><a href="Pedidos.Html">Pedidos</a></li>
+    <li class="right"><a href="Inicio de Sesion.Html">Login</a></li>
+    <li><a href="Registro.Html">Registro</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-texto">
+    <h1>Gestión de Personas</h1>
+    <p>Administra la información de clientes, empleados y administradores</p>
+  </div>
+  <div class="hero-boton">
+    <a href="Agregar pedido.Html" class="btn">+ Agregar pedido</a>
+  </div>
+</section>
+<section class="panel">
+  <div class="tabla">
+    <h3>Listado de Pedidos</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Factura</th>
+          <th>ID Menu</th>
+          <th>Cantidad</th>
+          <th>Descripcion</th>
+          <th>Valor Venta</th>
+          <th>Numero Mesa</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1001</td>
+          <td>1034509876</td>
+          <td>2</td>
+          <td>Sin gluten</td>
+          <td>$20.000</td>
+          <td>2</td>
+          <td>
+            <button class="edit" id="edit">Asignar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<script>
+    let button = document.getElementById("edit");
+    button.addEventListener("click", function() {
+        alert("¡Pedido asignado a la mesa!");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+body{
+    margin: 0;
+    background-color: silver;
+}
+
+nav {
+  width: 100%;
+  background-color: gray;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 45px;
+  display: block;
+}
+.logo {
+  margin-right: 30px;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.menu li a {
+  font-weight: bold;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 40px;
+  background-color: darkgray;
+  color: white;
+}
+
+.hero-texto{
+  display: flex;
+  flex-direction: column;
+}
+
+.hero h1 {
+  font-size: 40px;
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  max-width: 500px;
+}
+
+.hero-boton{
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: gold;
+  color: white;
+}
+
+.panel {
+  padding: 40px; 
+  background-color: gray; 
+  color: white; 
+}
+
+.filtros {
+  background-color: gray;
+  border: 1px solid gold; 
+  border-radius: 10px; 
+  padding: 15px; 
+  margin-bottom: 30px;
+  color: white; 
+}
+
+.filtros h3 {
+  color: gold; 
+  margin-bottom: 15px; 
+}
+
+.fila-filtros {
+  display: flex; 
+  gap: 15px; 
+  align-items: center; 
+}
+
+.fila-filtros select,
+.fila-filtros input {
+  padding: 8px; 
+  border-radius: 5px; 
+  border: 1px solid gold; 
+  background-color: white; 
+  color: gray; 
+}
+
+.btn-buscar {
+  background-color: red; 
+  color: white;
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 6px; 
+  cursor: pointer; 
+}
+
+.tabla {
+  border: 1px solid gold;
+  border-radius: 10px; 
+  overflow: hidden;
+}
+
+.tabla h3 {
+  background-color: gold; 
+  color: white; 
+  padding: 10px; 
+}
+
+table {
+  width: 100%; 
+  border-collapse: collapse; 
+}
+
+th {
+  background-color: silver; 
+  padding: 10px; 
+  text-align: left; 
+}
+
+td {
+  padding: 10px; 
+  border-top: 1px solid gold; 
+}
+
+.badge {
+  background-color: gold;
+  padding: 5px 10px; 
+  border-radius: 5px; 
+  font-size: 12px;
+}
+
+.rol {
+  padding: 5px 10px; 
+  border-radius: 5px; 
+  font-size: 12px; /
+}
+
+.admin {
+  background-color: gold; 
+}
+
+.edit {
+  background-color: gold; 
+  border: none; 
+  padding: 10px; 
+  margin-right: 5px;
+  border-radius: 8px; 
+}
+
+.delete {
+  background-color: red; 
+  color: white; 
+  border: none; 
+  padding: 10px;
+  border-radius: 8px; 
+}

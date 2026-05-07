@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    background-color: silver;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    width: 100%;
+    background-color: gray;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.logo {
+    margin-right: 30px;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.menu li a {
+    font-weight: bold;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: gold;
+    border-radius: 5px;
+}
+
+.hero-mesas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: darkgray;
+    color: white;
+}
+
+.hero-mesas h1 {
+    color: gold;
+    font-size: 40px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: gold;
+    color: white;
+}
+
+.hero {
+    padding: 60px;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero-pedidos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+    color: gray;
+    padding: 30px;
+    border: 1px solid gold;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card h3 {
+    color: gold;
+}
+
+.acciones-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-card {
+    background-color: gold;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-card-2 {
+    background-color: gray;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    text-decoration: none;
+}
