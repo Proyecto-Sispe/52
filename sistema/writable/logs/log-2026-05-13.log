@@ -1,0 +1,1318 @@
+DEBUG - 2026-05-13 11:57:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 11:57:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 11:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 11:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 11:58:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 11:58:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 12:25:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 12:40:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 12:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 12:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 12:40:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-13 12:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-05-13 12:49:21 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('login', [], true)
+ 3 APPPATH\Controllers\Home.php(12): view('login')
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 12:49:24 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('login', [], true)
+ 3 APPPATH\Controllers\Home.php(12): view('login')
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 12:49:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "registro.php"
+[Method: GET, Route: registro]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('registro.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('registro', [], true)
+ 3 APPPATH\Controllers\Home.php(18): view('registro')
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Home->registrar()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 12:49:49 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('login', [], true)
+ 3 APPPATH\Controllers\Home.php(12): view('login')
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 12:50:31 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('login', [], true)
+ 3 APPPATH\Controllers\Home.php(12): view('login')
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 12:50:35 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login.php')
+ 2 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('login', [], true)
+ 3 APPPATH\Controllers\Home.php(12): view('login')
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:47:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:47:26 --> Actividad: {"fecha":"2026-05-13 14:47:26","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:47:26 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+CRITICAL - 2026-05-13 14:47:26 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:47:26 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:47:26 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:47:26 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:47:26 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:49:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:49:18 --> Actividad: {"fecha":"2026-05-13 14:49:18","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:49:18 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 14:49:18 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:49:18 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:49:18 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:49:18 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:49:18 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:49:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:49:19 --> Actividad: {"fecha":"2026-05-13 14:49:19","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:49:19 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+WARNING - 2026-05-13 14:49:19 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+CRITICAL - 2026-05-13 14:49:19 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:49:19 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:49:20 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:49:20 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:50:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:50:39 --> Actividad: {"fecha":"2026-05-13 14:50:39","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:50:39 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+CRITICAL - 2026-05-13 14:50:39 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:50:39 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:50:39 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:50:39 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:50:39 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:50:41 --> Actividad: {"fecha":"2026-05-13 14:50:41","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:50:41 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 14:50:41 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:50:41 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:50:41 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:50:41 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:50:41 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:50:52 --> Actividad: {"fecha":"2026-05-13 14:50:52","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:50:52 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 14:50:52 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:50:52 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:50:52 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:50:52 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:50:52 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:50:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:50:53 --> Actividad: {"fecha":"2026-05-13 14:50:53","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:50:53 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 14:50:53 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:50:53 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:50:53 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:50:53 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:50:53 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:51:37 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+CRITICAL - 2026-05-13 14:51:37 --> ErrorException: Undefined variable $message
+[Method: POST, Route: login]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'POST: login\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:51:40 --> Actividad: {"fecha":"2026-05-13 14:51:40","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:51:40 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 14:51:40 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:51:40 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:51:40 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:51:40 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:51:40 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:54:11 --> Actividad: {"fecha":"2026-05-13 14:54:11","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:54:11 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 14:54:11 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:11 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:54:11 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:54:12 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:12 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 14:54:14 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:14 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:54:14 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:14 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:54:16 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/mesas
+CRITICAL - 2026-05-13 14:54:16 --> ErrorException: Undefined variable $message
+[Method: GET, Route: mesas]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Controller or its method is not found: \\App\\Controllers\\Mesa::index')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:54:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 14:54:25 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:25 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:54:25 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:25 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:54:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:54:27 --> Actividad: {"fecha":"2026-05-13 14:54:27","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:54:28 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+WARNING - 2026-05-13 14:54:28 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+CRITICAL - 2026-05-13 14:54:28 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:54:28 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:54:28 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:28 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:54:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 14:54:29 --> Actividad: {"fecha":"2026-05-13 14:54:29","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 14:54:29 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 14:54:29 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:29 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 14:54:29 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:54:29 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:29 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 14:54:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 14:54:30 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:30 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:54:30 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 14:54:30 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 14:55:28 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/guardar
+CRITICAL - 2026-05-13 14:55:28 --> ErrorException: Undefined variable $message
+[Method: POST, Route: guardar]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'POST: guardar\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:07:27 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/guardar
+CRITICAL - 2026-05-13 15:07:27 --> ErrorException: Undefined variable $message
+[Method: POST, Route: guardar]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'POST: guardar\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:07:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 15:07:34 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:07:34 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:07:34 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:07:34 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:07:41 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/guardar
+CRITICAL - 2026-05-13 15:07:41 --> ErrorException: Undefined variable $message
+[Method: POST, Route: guardar]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'POST: guardar\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:14:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 15:14:03 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:03 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:14:03 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:03 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:14:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 15:14:06 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:06 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:14:06 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:06 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:14:31 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/guardar
+CRITICAL - 2026-05-13 15:14:31 --> ErrorException: Undefined variable $message
+[Method: POST, Route: guardar]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'POST: guardar\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:14:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 15:14:35 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:35 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:14:35 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:35 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:14:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:14:36 --> Actividad: {"fecha":"2026-05-13 15:14:36","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:14:36 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:14:36 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:36 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 15:14:36 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:14:36 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:36 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:14:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 15:14:38 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:38 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:14:38 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:38 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:14:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:14:46 --> Actividad: {"fecha":"2026-05-13 15:14:46","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:14:46 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+CRITICAL - 2026-05-13 15:14:46 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:14:46 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:46 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:14:46 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:14:46 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:15:07 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+CRITICAL - 2026-05-13 15:15:07 --> ErrorException: Undefined variable $message
+[Method: POST, Route: login]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(242): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'POST: login\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:24:46 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/
+CRITICAL - 2026-05-13 15:24:46 --> ErrorException: Undefined variable $message
+[Method: GET, Route: /]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: /\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:24:47 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/
+CRITICAL - 2026-05-13 15:24:47 --> ErrorException: Undefined variable $message
+[Method: GET, Route: /]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: /\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:24:50 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/
+CRITICAL - 2026-05-13 15:24:50 --> ErrorException: Undefined variable $message
+[Method: GET, Route: /]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: /\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:24:53 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/
+CRITICAL - 2026-05-13 15:24:53 --> ErrorException: Undefined variable $message
+[Method: GET, Route: /]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: /\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:25:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:25:18 --> Actividad: {"fecha":"2026-05-13 15:25:18","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:25:18 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:25:18 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:25:18 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 15:25:18 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:25:18 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:25:18 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:29:01 --> Actividad: {"fecha":"2026-05-13 15:29:01","usuario_id":"anonimo","accion":"login_fallido","ip":"::1","datos":"{\"motivo\":\"usuario_no_existe\",\"correo\":\"cocina1@gmail.com\"}"}
+WARNING - 2026-05-13 15:29:01 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+CRITICAL - 2026-05-13 15:29:01 --> ErrorException: Undefined variable $message
+[Method: GET, Route: login]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: login\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:35:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:35:24 --> Actividad: {"fecha":"2026-05-13 15:35:24","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:35:24 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:35:24 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:35:24 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 15:35:24 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:35:24 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:35:24 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:35:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:35:27 --> Actividad: {"fecha":"2026-05-13 15:35:27","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:35:27 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:35:27 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:35:27 --> ErrorException: Undefined variable $message
+[Method: GET, Route: css/login.css]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: css/login.css\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-13 15:35:27 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-05-13 15:35:27 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+CRITICAL - 2026-05-13 15:35:27 --> ErrorException: Undefined variable $message
+[Method: GET, Route: images/logo2.png]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: images/logo2.png\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:35:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:35:41 --> Actividad: {"fecha":"2026-05-13 15:35:41","usuario_id":"anonimo","accion":"login_fallido","ip":"::1","datos":"{\"motivo\":\"usuario_no_existe\",\"correo\":\"cocina1@gmail.com\"}"}
+WARNING - 2026-05-13 15:35:41 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+CRITICAL - 2026-05-13 15:35:41 --> ErrorException: Undefined variable $message
+[Method: GET, Route: login]
+in APPPATH\Views\errors\html\error_404.php on line 77.
+ 1 APPPATH\Views\errors\html\error_404.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php', 77)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\sistema\\app\\Views\\errors\\html\\error_404.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('errors/html/error_404', [], true)
+ 5 APPPATH\Config\Routes.php(246): view('errors/html/error_404', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(975): CodeIgniter\Router\RouteCollection::{closure}('Can\'t find a route for \'GET: login\'.')
+ 7 SYSTEMPATH\CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-13 15:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:38:59 --> Actividad: {"fecha":"2026-05-13 15:38:59","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:38:59 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:38:59 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+WARNING - 2026-05-13 15:39:00 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:39:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:39:00 --> Actividad: {"fecha":"2026-05-13 15:39:00","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:39:00 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:39:00 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:39:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:39:01 --> Actividad: {"fecha":"2026-05-13 15:39:01","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:39:01 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:39:01 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:39:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:39:18 --> Actividad: {"fecha":"2026-05-13 15:39:18","usuario_id":"anonimo","accion":"login_fallido","ip":"::1","datos":"{\"motivo\":\"usuario_no_existe\",\"correo\":\"cocina1@gmail.com\"}"}
+WARNING - 2026-05-13 15:39:18 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+WARNING - 2026-05-13 15:39:39 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+DEBUG - 2026-05-13 15:39:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 15:39:44 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:39:47 --> Actividad: {"fecha":"2026-05-13 15:39:47","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:39:47 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:39:47 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 15:39:48 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+WARNING - 2026-05-13 15:40:33 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/guardar
+WARNING - 2026-05-13 15:41:20 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/guardar
+DEBUG - 2026-05-13 15:41:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:41:30 --> Actividad: {"fecha":"2026-05-13 15:41:30","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:41:30 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+WARNING - 2026-05-13 15:41:30 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+DEBUG - 2026-05-13 15:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:41:48 --> Actividad: {"fecha":"2026-05-13 15:41:48","usuario_id":"anonimo","accion":"login_fallido","ip":"::1","datos":"{\"motivo\":\"usuario_no_existe\",\"correo\":\"cocina1@gmail.com\"}"}
+WARNING - 2026-05-13 15:41:48 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+DEBUG - 2026-05-13 15:45:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:45:52 --> Actividad: {"fecha":"2026-05-13 15:45:52","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:45:52 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:45:52 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:45:53 --> Actividad: {"fecha":"2026-05-13 15:45:53","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:45:54 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:45:54 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:45:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 15:45:55 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:46:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:46:01 --> Actividad: {"fecha":"2026-05-13 15:46:01","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:46:01 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:46:01 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:46:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:46:29 --> Actividad: {"fecha":"2026-05-13 15:46:29","usuario_id":"anonimo","accion":"login_fallido","ip":"::1","datos":"{\"motivo\":\"usuario_no_existe\",\"correo\":\"cocina1@gmail.com\"}"}
+WARNING - 2026-05-13 15:46:29 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+DEBUG - 2026-05-13 15:57:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:57:58 --> Actividad: {"fecha":"2026-05-13 15:57:58","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:57:58 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:57:58 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 15:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:57:59 --> Actividad: {"fecha":"2026-05-13 15:57:59","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 15:57:59 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 15:57:59 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+ERROR - 2026-05-13 15:58:29 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'divina_comedia' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'divina_comedia', 3306, '', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistema\system\Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistema\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\sistema\app\Models\UsuarioModel.php(167): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\sistema\app\Controllers\Home.php(305): App\Models\UsuarioModel->buscarPorCorreo('cocina1@gmail.c...')
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(951): App\Controllers\Home->login()
+#9 C:\xampp\htdocs\sistema\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\sistema\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\sistema\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\sistema\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\sistema\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'divina_comedia' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\sistema\system\Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\sistema\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\sistema\app\Models\UsuarioModel.php(167): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\sistema\app\Controllers\Home.php(305): App\Models\UsuarioModel->buscarPorCorreo('cocina1@gmail.c...')
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(951): App\Controllers\Home->login()
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\sistema\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sistema\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\sistema\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\sistema\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+ERROR - 2026-05-13 15:58:29 --> Error al buscar usuario por correo: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'divina_comedia'
+DEBUG - 2026-05-13 15:58:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 15:58:29 --> Actividad: {"fecha":"2026-05-13 15:58:29","usuario_id":"anonimo","accion":"login_fallido","ip":"::1","datos":"{\"motivo\":\"usuario_no_existe\",\"correo\":\"cocina1@gmail.com\"}"}
+WARNING - 2026-05-13 15:58:29 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/login
+DEBUG - 2026-05-13 16:03:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 16:03:41 --> Actividad: {"fecha":"2026-05-13 16:03:41","usuario_id":"anonimo","accion":"vista_login","ip":"::1","datos":"[]"}
+WARNING - 2026-05-13 16:03:41 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/css/login.css
+WARNING - 2026-05-13 16:03:41 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+DEBUG - 2026-05-13 16:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-13 16:03:51 --> Actividad: {"fecha":"2026-05-13 16:03:51","usuario_id":"5","accion":"login_exitoso","ip":"::1","datos":"{\"usuario_id\":\"5\"}"}
+DEBUG - 2026-05-13 16:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-13 16:03:51 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/images/logo2.png
+WARNING - 2026-05-13 16:04:04 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/personas
+WARNING - 2026-05-13 16:04:06 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/personas
+WARNING - 2026-05-13 16:04:09 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/mesas
+WARNING - 2026-05-13 16:04:41 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/productos
+WARNING - 2026-05-13 16:04:49 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/menu
+WARNING - 2026-05-13 16:04:51 --> 404 - Pagina no encontrada: http://localhost/sistema/public/index.php/pedidos
