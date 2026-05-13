@@ -682,4 +682,63 @@ class Home extends BaseController
             ])->setStatusCode(500);
         }
     }
+
+    // ==========================================
+    // VISTAS ADICIONALES
+    // ==========================================
+
+    /**
+     * Muestra pagina de inicio publica
+     * @return string
+     */
+    public function inicio(): string
+    {
+        $this->registrarActividad('vista_inicio');
+        return view('inicio');
+    }
+
+    /**
+     * Retorna estadisticas del sistema (API)
+     * @return \CodeIgniter\HTTP\Response
+     */
+    public function apiEstadisticas()
+    {
+        try {
+            // Condicion: verificar sesion
+            if (!$this->verificarSesion()) {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'mensaje' => 'No autorizado'
+                ])->setStatusCode(401);
+            }
+
+            // Obtener estadisticas
+            $usuarios = $this->usuarioModel->obtenerTodos();
+            $estadisticas = $this->calcularEstadisticas($usuarios);
+
+            return $this->response->setJSON([
+                'error' => false,
+                'datos' => $estadisticas
+            ]);
+
+        } catch (Exception $e) {
+            return $this->response->setJSON([
+                'error' => true,
+                'mensaje' => $e->getMessage()
+            ])->setStatusCode(500);
+        }
+    }
+
+    /**
+     * Verifica si hay sesion activa (API)
+     * @return \CodeIgniter\HTTP\Response
+     */
+    public function apiVerificarSesion()
+    {
+        return $this->response->setJSON([
+            'logueado' => $this->verificarSesion(),
+            'usuario' => session('nombre') ?? null,
+            'rol' => session('rol') ?? null
+        ]);
+    }
 }
