@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Productos Menu.Css">
+    <link rel="icon" href="Logo 2.png" type="image/png">
+    <title>Gestion Producto</title>
+</head>
+<body>
+<nav>
+  <ul class="menu">
+    <li class="logo">
+      <img src="Logo 2.png" alt="Logo">
+    </li>
+    <li><a href="Inicio.html">Inicio</a></li>
+    <li><a href="Persona.Html">Personas</a></li>
+    <li><a href="Mesas.Html">Mesas</a></li>
+    <li><a href="Mesas 2.Html">Gestion de Mesas</a></li>
+    <li><a href="Menu.html">Menú</a></li>
+    <li><a href="Productos.html">Productos</a></li>
+    <li><a href="Factura.HTML">Facturas</a></li>
+    <li><a href="Pedidos.Html">Pedidos</a></li>
+    <li class="right"><a href="Inicio de Sesion.Html">Login</a></li>
+    <li><a href="Registro.Html">Registro</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-texto">
+    <h1>Gestión de Productos</h1>
+    <p>Administra la información, descripcion y precio de los productos</p>
+  </div>
+  <div class="hero-boton">
+    <a href="Formulario Menu.Html" class="btn">+Agregar productos</a>
+  </div>
+</section>
+<section class="panel">
+  <div class="filtros">
+    <h3>Filtros de Búsqueda</h3>
+    <div class="fila-filtros">
+      <div>
+        <label>Categorias</label>
+        <select>
+          <option>Hamburguesa</option>
+          <option>Perro Caliente</option>
+          <option>Papas</option>
+          <option>Gaseosa</option>
+        </select>
+      </div>
+      <div>
+        <label>Buscar</label>
+        <input type="text" placeholder="Nombre o ID...">
+      </div>
+      <button class="btn-buscar">Buscar</button>
+    </div>
+  </div>
+  <div class="tabla">
+    <h3>Listado de Productos</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Producto</th>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Descripcion</th>
+          <th>Categorias</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1001</td>
+          <td>Hamburguesa</td>
+          <td>25000</td>
+          <td>Hamburguesa Con Carne Y Papas</td>
+          <td>Hamburguesa</td>
+          <td>
+            <button class="edit">✏</button>
+            <button class="delete">🗑</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</body>
+</html>
