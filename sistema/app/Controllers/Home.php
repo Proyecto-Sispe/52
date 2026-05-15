@@ -2,120 +2,107 @@
 
 namespace App\Controllers;
 
-use App\Models\UsuarioModel;
-use CodeIgniter\Exceptions\PageNotFoundException;
 use Exception;
 
 /**
- * Controlador principal Home
- * Maneja autenticacion, usuarios y navegacion del sistema
+ * Controlador Home - Pagina de Inicio "Nosotros"
+ * Maneja la pagina principal del restaurante con informacion institucional
+ * 
+ * Funciones PHP utilizadas:
+ * - Excepciones (try-catch) para manejo de errores
+ * - Condiciones (if-else) para mostrar contenido dinamico
+ * - Bucles (foreach) para procesar datos
+ * - Operaciones para calculos y formateo
  */
 class Home extends BaseController
 {
     /**
-     * Modelo de usuario
-     * @var UsuarioModel
-     */
-    protected UsuarioModel $usuarioModel;
-
-    /**
-     * Roles permitidos en el sistema
+     * Informacion del restaurante
      * @var array
      */
-    private const ROLES_PERMITIDOS = ['admin', 'mesero', 'cocinero', 'cliente', 'aprendiz'];
-
-    /**
-     * Mensajes de error personalizados
-     * @var array
-     */
-    private const MENSAJES_ERROR = [
-        'credenciales_invalidas' => 'Correo o contraseña incorrectos',
-        'usuario_no_existe' => 'El usuario no existe en el sistema',
-        'password_incorrecto' => 'La contraseña ingresada es incorrecta',
-        'acceso_denegado' => 'No tienes permisos para acceder a esta sección',
-        'sesion_expirada' => 'Tu sesión ha expirado, inicia sesión nuevamente',
-        'correo_duplicado' => 'El correo electrónico ya está registrado',
-        'datos_invalidos' => 'Los datos proporcionados no son válidos'
+    private const INFO_RESTAURANTE = [
+        'nombre' => 'Restaurante SISPE',
+        'slogan' => 'Sabor que inspira, servicio que enamora',
+        'descripcion' => 'Somos un restaurante comprometido con ofrecer la mejor experiencia gastronómica, combinando ingredientes frescos, recetas tradicionales y un servicio excepcional.',
+        'telefono' => '+57 300 123 4567',
+        'email' => 'contacto@restaurantesispe.com',
+        'direccion' => 'Calle Principal #123, Centro, Colombia',
+        'horario' => [
+            'lunes_viernes' => '11:00 AM - 10:00 PM',
+            'sabado' => '12:00 PM - 11:00 PM',
+            'domingo' => '12:00 PM - 8:00 PM'
+        ]
     ];
 
     /**
-     * Constructor - Inicializa el modelo
+     * Valores del restaurante
+     * @var array
      */
-    public function __construct()
-    {
-        $this->usuarioModel = new UsuarioModel();
-    }
+    private const VALORES = [
+        [
+            'icono' => 'fa-heart',
+            'titulo' => 'Pasión',
+            'descripcion' => 'Cocinamos con amor y dedicación cada uno de nuestros platos.'
+        ],
+        [
+            'icono' => 'fa-leaf',
+            'titulo' => 'Frescura',
+            'descripcion' => 'Utilizamos ingredientes frescos y de la más alta calidad.'
+        ],
+        [
+            'icono' => 'fa-users',
+            'titulo' => 'Servicio',
+            'descripcion' => 'Nuestro equipo está comprometido con tu satisfacción.'
+        ],
+        [
+            'icono' => 'fa-star',
+            'titulo' => 'Excelencia',
+            'descripcion' => 'Buscamos la perfección en cada detalle de tu experiencia.'
+        ]
+    ];
+
+    /**
+     * Equipo del restaurante
+     * @var array
+     */
+    private const EQUIPO = [
+        [
+            'nombre' => 'Chef Carlos Rodríguez',
+            'cargo' => 'Chef Ejecutivo',
+            'descripcion' => 'Con más de 15 años de experiencia en cocina internacional.',
+            'imagen' => 'chef1.jpg'
+        ],
+        [
+            'nombre' => 'María González',
+            'cargo' => 'Gerente General',
+            'descripcion' => 'Líder apasionada por el servicio al cliente.',
+            'imagen' => 'gerente.jpg'
+        ],
+        [
+            'nombre' => 'Juan Pérez',
+            'cargo' => 'Sommelier',
+            'descripcion' => 'Experto en maridaje y selección de vinos.',
+            'imagen' => 'sommelier.jpg'
+        ]
+    ];
+
+    /**
+     * Estadisticas del restaurante
+     * @var array
+     */
+    private const ESTADISTICAS = [
+        'anos_experiencia' => 10,
+        'clientes_satisfechos' => 50000,
+        'platos_menu' => 80,
+        'chefs_expertos' => 5
+    ];
 
     // ==========================================
-    // FUNCIONES AUXILIARES (Operaciones)
+    // FUNCIONES AUXILIARES
     // ==========================================
 
     /**
-     * Valida formato de correo electronico
-     * @param string $correo
-     * @return bool
-     */
-    private function validarCorreo(string $correo): bool
-    {
-        return filter_var($correo, FILTER_VALIDATE_EMAIL) !== false;
-    }
-
-    /**
-     * Valida fortaleza de contraseña
-     * @param string $password
-     * @return array ['valido' => bool, 'mensaje' => string]
-     */
-    private function validarPassword(string $password): array
-    {
-        $errores = [];
-
-        // Condiciones de validacion
-        if (strlen($password) < 6) {
-            $errores[] = 'Mínimo 6 caracteres';
-        }
-        if (!preg_match('/[A-Z]/', $password)) {
-            $errores[] = 'Al menos una mayúscula';
-        }
-        if (!preg_match('/[0-9]/', $password)) {
-            $errores[] = 'Al menos un número';
-        }
-
-        return [
-            'valido' => empty($errores),
-            'mensaje' => implode(', ', $errores)
-        ];
-    }
-
-    /**
-     * Verifica si el usuario tiene sesion activa
-     * @return bool
-     */
-    private function verificarSesion(): bool
-    {
-        return session('logueado') === true;
-    }
-
-    /**
-     * Verifica si el usuario tiene rol de administrador
-     * @return bool
-     */
-    private function esAdmin(): bool
-    {
-        return session('rol') === 'admin';
-    }
-
-    /**
-     * Obtiene el mensaje de error por clave
-     * @param string $clave
-     * @return string
-     */
-    private function obtenerMensajeError(string $clave): string
-    {
-        return self::MENSAJES_ERROR[$clave] ?? 'Error desconocido';
-    }
-
-    /**
-     * Registra actividad del usuario (log)
+     * Registra actividad del visitante
      * @param string $accion
      * @param array $datos
      * @return void
@@ -124,621 +111,509 @@ class Home extends BaseController
     {
         $log = [
             'fecha' => date('Y-m-d H:i:s'),
-            'usuario_id' => session('id') ?? 'anonimo',
             'accion' => $accion,
             'ip' => $this->request->getIPAddress(),
+            'user_agent' => $this->request->getUserAgent()->getAgentString(),
             'datos' => json_encode($datos)
         ];
 
-        log_message('info', 'Actividad: ' . json_encode($log));
+        log_message('info', 'Actividad Home: ' . json_encode($log));
     }
 
     /**
-     * Sanitiza datos de entrada
-     * @param array $datos
+     * Formatea numero con separador de miles
+     * Operacion: Formato numerico
+     * @param int $numero
+     * @return string
+     */
+    private function formatearNumero(int $numero): string
+    {
+        // Condicion: si es mayor a 1000, usar formato con K
+        if ($numero >= 1000) {
+            return number_format($numero, 0, ',', '.');
+        }
+        return (string)$numero;
+    }
+
+    /**
+     * Obtiene el dia de la semana actual
+     * @return string
+     */
+    private function obtenerDiaActual(): string
+    {
+        $dias = [
+            'Sunday' => 'domingo',
+            'Monday' => 'lunes',
+            'Tuesday' => 'martes',
+            'Wednesday' => 'miercoles',
+            'Thursday' => 'jueves',
+            'Friday' => 'viernes',
+            'Saturday' => 'sabado'
+        ];
+
+        $diaIngles = date('l');
+        return $dias[$diaIngles] ?? 'lunes';
+    }
+
+    /**
+     * Verifica si el restaurante esta abierto
+     * Usa condiciones y operaciones
+     * @return array ['abierto' => bool, 'mensaje' => string]
+     */
+    private function verificarHorario(): array
+    {
+        $diaActual = $this->obtenerDiaActual();
+        $horaActual = (int)date('H');
+        $minutosActual = (int)date('i');
+
+        // Determinar horario segun dia
+        $horaApertura = 11;
+        $horaCierre = 22;
+
+        // Condicion: ajustar segun dia
+        if ($diaActual === 'sabado') {
+            $horaApertura = 12;
+            $horaCierre = 23;
+        } elseif ($diaActual === 'domingo') {
+            $horaApertura = 12;
+            $horaCierre = 20;
+        }
+
+        // Operacion: verificar si esta dentro del horario
+        $horaDecimal = $horaActual + ($minutosActual / 60);
+
+        if ($horaDecimal >= $horaApertura && $horaDecimal < $horaCierre) {
+            $horasRestantes = $horaCierre - $horaActual;
+            return [
+                'abierto' => true,
+                'mensaje' => "Abierto - Cerramos en {$horasRestantes} horas"
+            ];
+        } else {
+            // Condicion: calcular tiempo hasta apertura
+            if ($horaActual < $horaApertura) {
+                $horasParaAbrir = $horaApertura - $horaActual;
+                return [
+                    'abierto' => false,
+                    'mensaje' => "Cerrado - Abrimos en {$horasParaAbrir} horas"
+                ];
+            }
+            return [
+                'abierto' => false,
+                'mensaje' => "Cerrado - Abrimos mañana"
+            ];
+        }
+    }
+
+    /**
+     * Obtiene testimonios de clientes
      * @return array
      */
-    private function sanitizarDatos(array $datos): array
+    private function obtenerTestimonios(): array
     {
-        $sanitizados = [];
+        // En produccion, esto vendria de la base de datos
+        return [
+            [
+                'nombre' => 'Ana María López',
+                'comentario' => 'La mejor experiencia gastronómica que he tenido. Los platos son exquisitos y el servicio es impecable.',
+                'calificacion' => 5,
+                'fecha' => '2024-01-15'
+            ],
+            [
+                'nombre' => 'Roberto Sánchez',
+                'comentario' => 'Un lugar acogedor con comida deliciosa. El ambiente familiar es perfecto para cualquier ocasión.',
+                'calificacion' => 5,
+                'fecha' => '2024-01-10'
+            ],
+            [
+                'nombre' => 'Carmen Díaz',
+                'comentario' => 'Increíble relación calidad-precio. Definitivamente volveré con mi familia.',
+                'calificacion' => 4,
+                'fecha' => '2024-01-05'
+            ]
+        ];
+    }
 
-        // Bucle para limpiar cada campo
-        foreach ($datos as $clave => $valor) {
-            if (is_string($valor)) {
-                $sanitizados[$clave] = htmlspecialchars(trim($valor), ENT_QUOTES, 'UTF-8');
+    /**
+     * Calcula promedio de calificaciones
+     * Usa bucle y operaciones
+     * @param array $testimonios
+     * @return float
+     */
+    private function calcularPromedioCalificacion(array $testimonios): float
+    {
+        // Condicion: verificar si hay testimonios
+        if (empty($testimonios)) {
+            return 0;
+        }
+
+        $suma = 0;
+        $contador = 0;
+
+        // Bucle: sumar calificaciones
+        foreach ($testimonios as $testimonio) {
+            if (isset($testimonio['calificacion'])) {
+                $suma += $testimonio['calificacion'];
+                $contador++;
+            }
+        }
+
+        // Operacion: calcular promedio
+        return ($contador > 0) ? round($suma / $contador, 1) : 0;
+    }
+
+    /**
+     * Genera estrellas HTML segun calificacion
+     * Usa bucle
+     * @param int $calificacion
+     * @return string
+     */
+    private function generarEstrellas(int $calificacion): string
+    {
+        $estrellas = '';
+
+        // Bucle: generar estrellas llenas
+        for ($i = 1; $i <= 5; $i++) {
+            if ($i <= $calificacion) {
+                $estrellas .= '<i class="fas fa-star text-warning"></i>';
             } else {
-                $sanitizados[$clave] = $valor;
+                $estrellas .= '<i class="far fa-star text-warning"></i>';
             }
         }
 
-        return $sanitizados;
+        return $estrellas;
     }
 
     /**
-     * Calcula estadisticas de usuarios
-     * @param array $usuarios
+     * Obtiene eventos o promociones especiales
      * @return array
      */
-    private function calcularEstadisticas(array $usuarios): array
+    private function obtenerEventos(): array
     {
-        $stats = [
-            'total' => 0,
-            'por_rol' => [],
-            'activos_hoy' => 0
+        $eventos = [];
+        $fechaActual = date('Y-m-d');
+
+        // Lista de eventos
+        $eventosBase = [
+            [
+                'titulo' => 'Noche de Vinos',
+                'descripcion' => 'Maridaje especial con selección de vinos premium',
+                'fecha' => date('Y-m-d', strtotime('+3 days')),
+                'tipo' => 'evento'
+            ],
+            [
+                'titulo' => '2x1 en Postres',
+                'descripcion' => 'Todos los postres al 2x1 los días martes',
+                'fecha' => date('Y-m-d', strtotime('next tuesday')),
+                'tipo' => 'promocion'
+            ],
+            [
+                'titulo' => 'Menú Ejecutivo',
+                'descripcion' => 'Almuerzo completo a precio especial de lunes a viernes',
+                'fecha' => $fechaActual,
+                'tipo' => 'promocion'
+            ]
         ];
 
-        // Bucle para contar usuarios por rol
-        foreach ($usuarios as $usuario) {
-            $stats['total']++;
-            $rol = $usuario['rol'] ?? 'sin_rol';
-
-            if (!isset($stats['por_rol'][$rol])) {
-                $stats['por_rol'][$rol] = 0;
+        // Bucle: filtrar eventos vigentes
+        foreach ($eventosBase as $evento) {
+            // Condicion: solo incluir eventos futuros o actuales
+            if ($evento['fecha'] >= $fechaActual) {
+                $eventos[] = $evento;
             }
-            $stats['por_rol'][$rol]++;
         }
 
-        return $stats;
+        return $eventos;
     }
 
     // ==========================================
-    // VISTAS PUBLICAS
+    // VISTAS PRINCIPALES
     // ==========================================
 
     /**
-     * Muestra pagina de login
+     * Pagina de inicio - Nosotros
      * @return string
      */
-    public function index(): string
-    {
-        // Condicion: si ya esta logueado, redirigir
-        if ($this->verificarSesion()) {
-            return redirect()->to('/dashboard')->getBody() ?? '';
-        }
-
-        $this->registrarActividad('vista_login');
-        return view('login');
-    }
-
-    /**
-     * Muestra formulario de registro
-     * @return string
-     */
-    public function registrar(): string
-    {
-        // Condicion: si ya esta logueado, redirigir
-        if ($this->verificarSesion()) {
-            return redirect()->to('/dashboard')->getBody() ?? '';
-        }
-
-        return view('registro', ['roles' => self::ROLES_PERMITIDOS]);
-    }
-
-    // ==========================================
-    // AUTENTICACION
-    // ==========================================
-
-    /**
-     * Guarda nuevo usuario con validaciones
-     * @return \CodeIgniter\HTTP\RedirectResponse
-     */
-    public function guardar()
+    public function index()
     {
         try {
-            // Obtener y sanitizar datos
-            $datosRaw = [
-                'nombre' => $this->request->getPost('nombre'),
-                'correo' => $this->request->getPost('correo'),
-                'password' => $this->request->getPost('password'),
-                'rol' => $this->request->getPost('rol') ?? 'aprendiz'
+            $this->registrarActividad('vista_inicio');
+
+            // Obtener datos dinamicos
+            $testimonios = $this->obtenerTestimonios();
+            $eventos = $this->obtenerEventos();
+            $estadoHorario = $this->verificarHorario();
+            $promedioCalificacion = $this->calcularPromedioCalificacion($testimonios);
+
+            // Formatear estadisticas
+            $estadisticasFormateadas = [];
+            foreach (self::ESTADISTICAS as $clave => $valor) {
+                $estadisticasFormateadas[$clave] = [
+                    'valor' => $valor,
+                    'formateado' => $this->formatearNumero($valor)
+                ];
+            }
+
+            // Procesar testimonios con estrellas
+            $testimoniosProcesados = [];
+            foreach ($testimonios as $testimonio) {
+                $testimonio['estrellas'] = $this->generarEstrellas($testimonio['calificacion']);
+                $testimoniosProcesados[] = $testimonio;
+            }
+
+            // Preparar datos para la vista
+            $datos = [
+                'info' => self::INFO_RESTAURANTE,
+                'valores' => self::VALORES,
+                'equipo' => self::EQUIPO,
+                'estadisticas' => $estadisticasFormateadas,
+                'testimonios' => $testimoniosProcesados,
+                'eventos' => $eventos,
+                'horario' => $estadoHorario,
+                'promedio_calificacion' => $promedioCalificacion,
+                'dia_actual' => $this->obtenerDiaActual()
             ];
 
-            $datos = $this->sanitizarDatos($datosRaw);
-
-            // Validar correo
-            if (!$this->validarCorreo($datos['correo'])) {
-                throw new Exception($this->obtenerMensajeError('datos_invalidos') . ': correo inválido');
-            }
-
-            // Validar password
-            $validacionPass = $this->validarPassword($datos['password']);
-            if (!$validacionPass['valido']) {
-                throw new Exception('Contraseña inválida: ' . $validacionPass['mensaje']);
-            }
-
-            // Validar rol permitido
-            if (!in_array($datos['rol'], self::ROLES_PERMITIDOS)) {
-                throw new Exception('Rol no permitido');
-            }
-
-            // Verificar si correo ya existe
-            $existente = $this->usuarioModel->buscarPorCorreo($datos['correo']);
-            if ($existente !== null) {
-                throw new Exception($this->obtenerMensajeError('correo_duplicado'));
-            }
-
-            // Preparar datos para insercion
-            $datosInsertar = [
-                'nombre' => $datos['nombre'],
-                'correo' => $datos['correo'],
-                'password' => password_hash($datos['password'], PASSWORD_DEFAULT),
-                'rol' => $datos['rol']
-            ];
-
-            // Intentar insertar
-            $resultado = $this->usuarioModel->insert($datosInsertar);
-
-            if ($resultado === false) {
-                throw new Exception('Error al registrar usuario');
-            }
-
-            $this->registrarActividad('registro_usuario', ['correo' => $datos['correo']]);
-
-            session()->setFlashdata('exito', 'Usuario registrado correctamente');
-            return redirect()->to('/');
+            return view('inicio', $datos);
 
         } catch (Exception $e) {
-            $this->registrarActividad('error_registro', ['error' => $e->getMessage()]);
-            session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/registro');
-        }
-    }
-
-    /**
-     * Procesa inicio de sesion
-     * @return \CodeIgniter\HTTP\RedirectResponse
-     */
-    public function login()
-    {
-        try {
-            $correo = $this->request->getPost('correo');
-            $password = $this->request->getPost('password');
-
-            // Validaciones basicas
-            if (empty($correo) || empty($password)) {
-                throw new Exception('Correo y contraseña son requeridos');
-            }
-
-            if (!$this->validarCorreo($correo)) {
-                throw new Exception('Formato de correo inválido');
-            }
-
-            // Buscar usuario
-            $usuario = $this->usuarioModel->buscarPorCorreo($correo);
-
-            // Condicion: verificar existencia
-            if ($usuario === null) {
-                $this->registrarActividad('login_fallido', ['motivo' => 'usuario_no_existe', 'correo' => $correo]);
-                throw new Exception($this->obtenerMensajeError('usuario_no_existe'));
-            }
-
-            // Condicion: verificar password
-            if (!password_verify($password, $usuario['password'])) {
-                $this->registrarActividad('login_fallido', ['motivo' => 'password_incorrecto', 'correo' => $correo]);
-                throw new Exception($this->obtenerMensajeError('password_incorrecto'));
-            }
-
-            // Crear sesion
-            session()->set([
-                'id' => $usuario['id'],
-                'nombre' => $usuario['nombre'],
-                'correo' => $usuario['correo'],
-                'rol' => $usuario['rol'],
-                'logueado' => true,
-                'tiempo_login' => time()
+            log_message('error', 'Error en pagina de inicio: ' . $e->getMessage());
+            return view('inicio', [
+                'info' => self::INFO_RESTAURANTE,
+                'error' => 'Ocurrió un error al cargar la página'
             ]);
-
-            $this->registrarActividad('login_exitoso', ['usuario_id' => $usuario['id']]);
-
-            // Redirigir segun rol
-            return $this->redirigirPorRol($usuario['rol']);
-
-        } catch (Exception $e) {
-            session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/');
         }
     }
 
     /**
-     * Redirige al dashboard segun el rol del usuario
-     * @param string $rol
-     * @return \CodeIgniter\HTTP\RedirectResponse
+     * Pagina de contacto
+     * @return string
      */
-    private function redirigirPorRol(string $rol)
-    {
-        $rutas = [
-            'admin' => '/dashboard',
-            'mesero' => '/dashboard',
-            'cocinero' => '/dashboard',
-            'cliente' => '/dashboard',
-            'aprendiz' => '/dashboard'
-        ];
-
-        // Condicion: verificar si existe ruta para el rol
-        $ruta = $rutas[$rol] ?? '/dashboard';
-
-        return redirect()->to($ruta);
-    }
-
-    /**
-     * Cierra sesion del usuario
-     * @return \CodeIgniter\HTTP\RedirectResponse
-     */
-    public function logout()
-    {
-        $usuarioId = session('id');
-        $this->registrarActividad('logout', ['usuario_id' => $usuarioId]);
-
-        session()->destroy();
-
-        return redirect()->to('/');
-    }
-
-    // ==========================================
-    // DASHBOARD Y VISTAS PROTEGIDAS
-    // ==========================================
-
-    /**
-     * Muestra dashboard principal
-     * @return string|\CodeIgniter\HTTP\RedirectResponse
-     */
-    public function dashboard()
-    {
-        // Condicion: verificar sesion
-        if (!$this->verificarSesion()) {
-            session()->setFlashdata('error', $this->obtenerMensajeError('sesion_expirada'));
-            return redirect()->to('/');
-        }
-
-        // Verificar tiempo de sesion (2 horas)
-        $tiempoLogin = session('tiempo_login') ?? 0;
-        $tiempoActual = time();
-        $tiempoMaximo = 7200; // 2 horas en segundos
-
-        if (($tiempoActual - $tiempoLogin) > $tiempoMaximo) {
-            session()->destroy();
-            session()->setFlashdata('error', $this->obtenerMensajeError('sesion_expirada'));
-            return redirect()->to('/');
-        }
-
-        $datos = [
-            'usuario' => session('nombre'),
-            'rol' => session('rol')
-        ];
-
-        return view('dashboard', $datos);
-    }
-
-    // ==========================================
-    // GESTION DE USUARIOS (Solo Admin)
-    // ==========================================
-
-    /**
-     * Lista todos los usuarios
-     * @return string|\CodeIgniter\HTTP\RedirectResponse
-     */
-    public function usuarios()
+    public function contacto()
     {
         try {
-            // Condicion: verificar permisos
-            if (!$this->verificarSesion()) {
-                throw new Exception($this->obtenerMensajeError('sesion_expirada'));
-            }
-
-            if (!$this->esAdmin()) {
-                $this->registrarActividad('acceso_denegado', ['seccion' => 'usuarios']);
-                throw new Exception($this->obtenerMensajeError('acceso_denegado'));
-            }
-
-            // Obtener usuarios con paginacion
-            $usuarios = $this->usuarioModel->obtenerTodos();
-
-            // Calcular estadisticas usando bucle
-            $estadisticas = $this->calcularEstadisticas($usuarios);
-
-            // Filtrar usuarios si hay parametro de busqueda
-            $busqueda = $this->request->getGet('buscar');
-            if (!empty($busqueda)) {
-                $usuarios = $this->filtrarUsuarios($usuarios, $busqueda);
-            }
+            $this->registrarActividad('vista_contacto');
 
             $datos = [
-                'usuarios' => $usuarios,
-                'estadisticas' => $estadisticas,
-                'roles' => self::ROLES_PERMITIDOS
+                'info' => self::INFO_RESTAURANTE
             ];
 
-            return view('usuarios', $datos);
+            return view('contacto', $datos);
 
         } catch (Exception $e) {
-            session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/dashboard');
+            log_message('error', 'Error en pagina de contacto: ' . $e->getMessage());
+            session()->setFlashdata('error', 'Error al cargar la página');
+            return redirect()->to('/');
         }
     }
 
     /**
-     * Filtra usuarios por criterio de busqueda
-     * @param array $usuarios
-     * @param string $busqueda
-     * @return array
-     */
-    private function filtrarUsuarios(array $usuarios, string $busqueda): array
-    {
-        $filtrados = [];
-        $busquedaLower = strtolower($busqueda);
-
-        // Bucle para filtrar
-        foreach ($usuarios as $usuario) {
-            $coincide = false;
-
-            // Verificar coincidencia en nombre
-            if (strpos(strtolower($usuario['nombre']), $busquedaLower) !== false) {
-                $coincide = true;
-            }
-
-            // Verificar coincidencia en correo
-            if (strpos(strtolower($usuario['correo']), $busquedaLower) !== false) {
-                $coincide = true;
-            }
-
-            // Verificar coincidencia en rol
-            if (strpos(strtolower($usuario['rol']), $busquedaLower) !== false) {
-                $coincide = true;
-            }
-
-            if ($coincide) {
-                $filtrados[] = $usuario;
-            }
-        }
-
-        return $filtrados;
-    }
-
-    /**
-     * Muestra formulario de edicion de usuario
-     * @param int $id
-     * @return string|\CodeIgniter\HTTP\RedirectResponse
-     */
-    public function editar(int $id)
-    {
-        try {
-            // Condicion: verificar permisos
-            if (!$this->verificarSesion() || !$this->esAdmin()) {
-                throw new Exception($this->obtenerMensajeError('acceso_denegado'));
-            }
-
-            // Validar ID
-            if ($id <= 0) {
-                throw new PageNotFoundException('Usuario no encontrado');
-            }
-
-            $usuario = $this->usuarioModel->find($id);
-
-            // Condicion: verificar existencia
-            if ($usuario === null) {
-                throw new PageNotFoundException('Usuario no encontrado');
-            }
-
-            $datos = [
-                'usuario' => $usuario,
-                'roles' => self::ROLES_PERMITIDOS
-            ];
-
-            return view('editar_usuario', $datos);
-
-        } catch (PageNotFoundException $e) {
-            throw $e;
-        } catch (Exception $e) {
-            session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/usuarios');
-        }
-    }
-
-    /**
-     * Actualiza datos de usuario
-     * @param int $id
+     * Procesa formulario de contacto
      * @return \CodeIgniter\HTTP\RedirectResponse
      */
-    public function actualizar(int $id)
+    public function enviarContacto()
     {
         try {
-            // Condicion: verificar permisos
-            if (!$this->verificarSesion() || !$this->esAdmin()) {
-                throw new Exception($this->obtenerMensajeError('acceso_denegado'));
-            }
-
-            // Validar ID
-            if ($id <= 0) {
-                throw new Exception('ID de usuario inválido');
-            }
-
-            // Verificar que usuario existe
-            $usuarioExistente = $this->usuarioModel->find($id);
-            if ($usuarioExistente === null) {
-                throw new Exception('Usuario no encontrado');
-            }
-
-            // Obtener y sanitizar datos
-            $datosRaw = [
-                'nombre' => $this->request->getPost('nombre'),
-                'correo' => $this->request->getPost('correo'),
-                'rol' => $this->request->getPost('rol')
-            ];
-
-            $datos = $this->sanitizarDatos($datosRaw);
+            // Obtener datos del formulario
+            $nombre = $this->request->getPost('nombre');
+            $correo = $this->request->getPost('correo');
+            $telefono = $this->request->getPost('telefono');
+            $mensaje = $this->request->getPost('mensaje');
 
             // Validaciones
-            if (!$this->validarCorreo($datos['correo'])) {
-                throw new Exception('Correo electrónico inválido');
+            $errores = [];
+
+            // Condicion: validar nombre
+            if (empty($nombre) || strlen($nombre) < 3) {
+                $errores[] = 'El nombre debe tener al menos 3 caracteres';
             }
 
-            if (!in_array($datos['rol'], self::ROLES_PERMITIDOS)) {
-                throw new Exception('Rol no válido');
+            // Condicion: validar correo
+            if (empty($correo) || !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+                $errores[] = 'Ingresa un correo electrónico válido';
             }
 
-            // Verificar correo duplicado (excepto el mismo usuario)
-            $otroUsuario = $this->usuarioModel->buscarPorCorreo($datos['correo']);
-            if ($otroUsuario !== null && $otroUsuario['id'] != $id) {
-                throw new Exception($this->obtenerMensajeError('correo_duplicado'));
+            // Condicion: validar mensaje
+            if (empty($mensaje) || strlen($mensaje) < 10) {
+                $errores[] = 'El mensaje debe tener al menos 10 caracteres';
             }
 
-            // Actualizar
-            $resultado = $this->usuarioModel->update($id, $datos);
-
-            if ($resultado === false) {
-                throw new Exception('Error al actualizar usuario');
+            // Condicion: si hay errores, mostrarlos
+            if (!empty($errores)) {
+                throw new Exception(implode('. ', $errores));
             }
 
-            $this->registrarActividad('actualizar_usuario', ['usuario_id' => $id]);
-
-            session()->setFlashdata('exito', 'Usuario actualizado correctamente');
-            return redirect()->to('/usuarios');
-
-        } catch (Exception $e) {
-            session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/editar/' . $id);
-        }
-    }
-
-    /**
-     * Elimina usuario del sistema
-     * @param int $id
-     * @return \CodeIgniter\HTTP\RedirectResponse
-     */
-    public function eliminar(int $id)
-    {
-        try {
-            // Condicion: verificar permisos
-            if (!$this->verificarSesion() || !$this->esAdmin()) {
-                throw new Exception($this->obtenerMensajeError('acceso_denegado'));
-            }
-
-            // Validar ID
-            if ($id <= 0) {
-                throw new Exception('ID de usuario inválido');
-            }
-
-            // No permitir auto-eliminacion
-            if ($id == session('id')) {
-                throw new Exception('No puedes eliminar tu propia cuenta');
-            }
-
-            // Verificar que usuario existe
-            $usuario = $this->usuarioModel->find($id);
-            if ($usuario === null) {
-                throw new Exception('Usuario no encontrado');
-            }
-
-            // Eliminar
-            $resultado = $this->usuarioModel->delete($id);
-
-            if ($resultado === false) {
-                throw new Exception('Error al eliminar usuario');
-            }
-
-            $this->registrarActividad('eliminar_usuario', ['usuario_id' => $id]);
-
-            session()->setFlashdata('exito', 'Usuario eliminado correctamente');
-            return redirect()->to('/usuarios');
-
-        } catch (Exception $e) {
-            session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/usuarios');
-        }
-    }
-
-    // ==========================================
-    // API ENDPOINTS
-    // ==========================================
-
-    /**
-     * Retorna usuarios en formato JSON (API)
-     * @return \CodeIgniter\HTTP\Response
-     */
-    public function apiUsuarios()
-    {
-        try {
-            if (!$this->verificarSesion() || !$this->esAdmin()) {
-                return $this->response->setJSON([
-                    'error' => true,
-                    'mensaje' => $this->obtenerMensajeError('acceso_denegado')
-                ])->setStatusCode(403);
-            }
-
-            $usuarios = $this->usuarioModel->obtenerTodos();
-            $estadisticas = $this->calcularEstadisticas($usuarios);
-
-            return $this->response->setJSON([
-                'error' => false,
-                'datos' => $usuarios,
-                'estadisticas' => $estadisticas,
-                'total' => count($usuarios)
+            // Registrar el mensaje de contacto
+            $this->registrarActividad('mensaje_contacto', [
+                'nombre' => $nombre,
+                'correo' => $correo,
+                'telefono' => $telefono
             ]);
 
+            // Aqui iria la logica para enviar email o guardar en BD
+
+            session()->setFlashdata('exito', 'Mensaje enviado correctamente. Te contactaremos pronto.');
+            return redirect()->to('/contacto');
+
         } catch (Exception $e) {
-            return $this->response->setJSON([
-                'error' => true,
-                'mensaje' => $e->getMessage()
-            ])->setStatusCode(500);
+            session()->setFlashdata('error', $e->getMessage());
+            return redirect()->to('/contacto');
         }
     }
 
-    // ==========================================
-    // VISTAS ADICIONALES
-    // ==========================================
-
     /**
-     * Muestra pagina de inicio publica
+     * Pagina de reservaciones
      * @return string
      */
-    public function inicio(): string
-    {
-        $this->registrarActividad('vista_inicio');
-        return view('inicio');
-    }
-
-    /**
-     * Retorna estadisticas del sistema (API)
-     * @return \CodeIgniter\HTTP\Response
-     */
-    public function apiEstadisticas()
+    public function reservaciones()
     {
         try {
-            // Condicion: verificar sesion
-            if (!$this->verificarSesion()) {
-                return $this->response->setJSON([
-                    'error' => true,
-                    'mensaje' => 'No autorizado'
-                ])->setStatusCode(401);
-            }
+            $this->registrarActividad('vista_reservaciones');
 
-            // Obtener estadisticas
-            $usuarios = $this->usuarioModel->obtenerTodos();
-            $estadisticas = $this->calcularEstadisticas($usuarios);
+            $datos = [
+                'info' => self::INFO_RESTAURANTE,
+                'horarios' => self::INFO_RESTAURANTE['horario']
+            ];
 
-            return $this->response->setJSON([
-                'error' => false,
-                'datos' => $estadisticas
-            ]);
+            return view('reservaciones', $datos);
 
         } catch (Exception $e) {
-            return $this->response->setJSON([
-                'error' => true,
-                'mensaje' => $e->getMessage()
-            ])->setStatusCode(500);
+            log_message('error', 'Error en reservaciones: ' . $e->getMessage());
+            return redirect()->to('/');
         }
     }
 
     /**
-     * Verifica si hay sesion activa (API)
+     * Procesa solicitud de reservacion
+     * @return \CodeIgniter\HTTP\RedirectResponse
+     */
+    public function procesarReservacion()
+    {
+        try {
+            // Obtener datos
+            $nombre = $this->request->getPost('nombre');
+            $telefono = $this->request->getPost('telefono');
+            $fecha = $this->request->getPost('fecha');
+            $hora = $this->request->getPost('hora');
+            $personas = (int)$this->request->getPost('personas');
+            $comentarios = $this->request->getPost('comentarios');
+
+            // Validaciones
+            $errores = [];
+
+            if (empty($nombre)) {
+                $errores[] = 'El nombre es obligatorio';
+            }
+
+            if (empty($telefono)) {
+                $errores[] = 'El teléfono es obligatorio';
+            }
+
+            if (empty($fecha)) {
+                $errores[] = 'La fecha es obligatoria';
+            } elseif (strtotime($fecha) < strtotime(date('Y-m-d'))) {
+                $errores[] = 'La fecha no puede ser anterior a hoy';
+            }
+
+            if ($personas < 1 || $personas > 20) {
+                $errores[] = 'El número de personas debe estar entre 1 y 20';
+            }
+
+            if (!empty($errores)) {
+                throw new Exception(implode('. ', $errores));
+            }
+
+            // Registrar reservacion
+            $this->registrarActividad('solicitud_reservacion', [
+                'nombre' => $nombre,
+                'fecha' => $fecha,
+                'hora' => $hora,
+                'personas' => $personas
+            ]);
+
+            session()->setFlashdata('exito', 'Reservación solicitada correctamente. Te contactaremos para confirmar.');
+            return redirect()->to('/reservaciones');
+
+        } catch (Exception $e) {
+            session()->setFlashdata('error', $e->getMessage());
+            return redirect()->to('/reservaciones');
+        }
+    }
+
+    /**
+     * Pagina de galeria
+     * @return string
+     */
+    public function galeria()
+    {
+        try {
+            $this->registrarActividad('vista_galeria');
+
+            // Imagenes de la galeria (en produccion vendrian de la BD)
+            $imagenes = [
+                ['src' => 'plato1.jpg', 'titulo' => 'Plato Especial', 'categoria' => 'platos'],
+                ['src' => 'interior1.jpg', 'titulo' => 'Nuestro Salón', 'categoria' => 'ambiente'],
+                ['src' => 'equipo1.jpg', 'titulo' => 'Nuestro Equipo', 'categoria' => 'equipo'],
+                ['src' => 'plato2.jpg', 'titulo' => 'Entrada Gourmet', 'categoria' => 'platos'],
+                ['src' => 'interior2.jpg', 'titulo' => 'Terraza', 'categoria' => 'ambiente'],
+                ['src' => 'plato3.jpg', 'titulo' => 'Postre Artesanal', 'categoria' => 'platos']
+            ];
+
+            // Filtrar por categoria si se especifica
+            $categoriaFiltro = $this->request->getGet('categoria');
+            
+            if (!empty($categoriaFiltro)) {
+                $imagenesFiltradas = [];
+                foreach ($imagenes as $imagen) {
+                    if ($imagen['categoria'] === $categoriaFiltro) {
+                        $imagenesFiltradas[] = $imagen;
+                    }
+                }
+                $imagenes = $imagenesFiltradas;
+            }
+
+            $datos = [
+                'imagenes' => $imagenes,
+                'categoriaActual' => $categoriaFiltro
+            ];
+
+            return view('galeria', $datos);
+
+        } catch (Exception $e) {
+            log_message('error', 'Error en galeria: ' . $e->getMessage());
+            return redirect()->to('/');
+        }
+    }
+
+    /**
+     * API: Obtener informacion del restaurante
      * @return \CodeIgniter\HTTP\Response
      */
-    public function apiVerificarSesion()
+    public function apiInfo()
     {
         return $this->response->setJSON([
-            'logueado' => $this->verificarSesion(),
-            'usuario' => session('nombre') ?? null,
-            'rol' => session('rol') ?? null
+            'exito' => true,
+            'datos' => [
+                'info' => self::INFO_RESTAURANTE,
+                'horario' => $this->verificarHorario(),
+                'estadisticas' => self::ESTADISTICAS
+            ]
+        ]);
+    }
+
+    /**
+     * API: Obtener testimonios
+     * @return \CodeIgniter\HTTP\Response
+     */
+    public function apiTestimonios()
+    {
+        $testimonios = $this->obtenerTestimonios();
+        $promedio = $this->calcularPromedioCalificacion($testimonios);
+
+        return $this->response->setJSON([
+            'exito' => true,
+            'datos' => $testimonios,
+            'promedio' => $promedio,
+            'total' => count($testimonios)
         ]);
     }
 }
