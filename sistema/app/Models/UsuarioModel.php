@@ -63,8 +63,7 @@ class UsuarioModel extends Model
         'nombre' => 'required|min_length[3]|max_length[100]',
         'correo' => 'required|valid_email|max_length[150]',
         'password' => 'required|min_length[6]',
-        'rol' => 'required|in_list[admin,mesero,cocinero,cliente,aprendiz]'
-    ];
+        'rol' => 'required|in_list[admin,mesero,cocinero,cliente,mesa,aprendiz]'    ];
 
     /**
      * Mensajes de validacion personalizados
@@ -100,6 +99,7 @@ class UsuarioModel extends Model
         'mesero' => ['nombre' => 'Mesero', 'nivel' => 2],
         'cocinero' => ['nombre' => 'Cocinero', 'nivel' => 2],
         'cliente' => ['nombre' => 'Cliente', 'nivel' => 3],
+        'mesa' => ['nombre' => 'Mesa', 'nivel' => 3],
         'aprendiz' => ['nombre' => 'Aprendiz', 'nivel' => 4]
     ];
 
@@ -638,3 +638,4 @@ class UsuarioModel extends Model
         }
     }
 }
+

@@ -50,12 +50,11 @@ $verificarRol = function (array $rolesPermitidos): bool {
  * Array de roles permitidos por tipo de acceso
  */
 $rolesPermitidos = [
-    'admin' => ['admin'],
+     'admin' => ['admin'],
     'staff' => ['admin', 'mesero', 'cocinero'],
     'ventas' => ['admin', 'mesero'],
-    'todos' => ['admin', 'mesero', 'cocinero', 'cliente', 'aprendiz']
+    'todos' => ['admin', 'mesero', 'cocinero', 'cliente', 'mesa', 'aprendiz']
 ];
-
 // ==========================================
 // RUTAS PUBLICAS (Sin autenticacion)
 // ==========================================
@@ -84,6 +83,22 @@ $routes->get('/dashboard', 'Home::dashboard', ['as' => 'dashboard']);
 
 // Cerrar sesion
 $routes->get('/logout', 'Home::logout', ['as' => 'logout']);
+
+// ==========================================
+// RUTAS DE GESTION DE USUARIOS
+// ==========================================
+
+// Listar usuarios (solo admin)
+$routes->get('/usuarios', 'Home::usuarios', ['as' => 'usuarios']);
+
+// Editar usuario
+$routes->get('/editar/(:num)', 'Home::editar/$1', ['as' => 'editar_usuario']);
+
+// Actualizar usuario (POST)
+$routes->post('/actualizar/(:num)', 'Home::actualizar/$1', ['as' => 'actualizar_usuario']);
+
+// Eliminar usuario
+$routes->get('/eliminar/(:num)', 'Home::eliminar/$1', ['as' => 'eliminar_usuario']);
 
 // ==========================================
 // RUTAS DE PERSONAS
@@ -298,3 +313,130 @@ $routes->set404Override(static function () {
         'codigo' => 404
     ]);
 });
+
+// ==========================================
+// RUTAS PUBLICAS - PAGINA PRINCIPAL (Nosotros)
+// ==========================================
+
+// Pagina de inicio - Nosotros
+$routes->get('/', 'Home::index', ['as' => 'home']);
+$routes->get('/inicio', 'Home::index', ['as' => 'inicio']);
+$routes->get('/nosotros', 'Home::index', ['as' => 'nosotros']);
+
+// Contacto
+$routes->get('/contacto', 'Home::contacto', ['as' => 'contacto']);
+$routes->post('/contacto/enviar', 'Home::enviarContacto', ['as' => 'enviar_contacto']);
+
+// Reservaciones
+$routes->get('/reservaciones', 'Home::reservaciones', ['as' => 'reservaciones']);
+$routes->post('/reservaciones/procesar', 'Home::procesarReservacion', ['as' => 'procesar_reservacion']);
+
+// Galeria
+$routes->get('/galeria', 'Home::galeria', ['as' => 'galeria']);
+
+// ==========================================
+// RUTAS DE AUTENTICACION (Auth Controller)
+// ==========================================
+
+$routes->group('auth', ['namespace' => 'App\Controllers'], static function ($routes) {
+    // Mostrar formulario de login
+    $routes->get('login', 'Auth::login', ['as' => 'auth_login']);
+    
+    // Procesar login (POST)
+    $routes->post('login', 'Auth::procesarLogin', ['as' => 'procesar_login']);
+    
+    // Mostrar formulario de registro
+    $routes->get('registro', 'Auth::registro', ['as' => 'auth_registro']);
+    
+    // Procesar registro (POST)
+    $routes->post('registro', 'Auth::procesarRegistro', ['as' => 'procesar_registro']);
+    
+    // Cerrar sesion
+    $routes->get('logout', 'Auth::logout', ['as' => 'auth_logout']);
+    
+    // Verificar sesion (AJAX)
+    $routes->get('verificar-sesion', 'Auth::verificarSesionActiva', ['as' => 'verificar_sesion']);
+    
+    // Renovar sesion (AJAX)
+    $routes->post('renovar-sesion', 'Auth::renovarSesion', ['as' => 'renovar_sesion']);
+    
+    // Recuperar contraseña
+    $routes->get('recuperar-password', 'Auth::recuperarPassword', ['as' => 'recuperar_password']);
+    $routes->post('recuperar-password', 'Auth::procesarRecuperacion', ['as' => 'procesar_recuperacion']);
+});
+
+// Rutas alias para acceso directo
+$routes->get('/login', 'Auth::login', ['as' => 'login']);
+$routes->get('/registro', 'Auth::registro', ['as' => 'registro']);
+$routes->get('/logout', 'Auth::logout', ['as' => 'logout']);
+
+// ==========================================
+// RUTAS DE PRODUCTOS (Productos Controller)
+// ==========================================
+
+$routes->group('productos', ['namespace' => 'App\Controllers'], static function ($routes) {
+    // Vista publica - Menu de productos
+    $routes->get('/', 'Productos::index', ['as' => 'productos']);
+    
+    // Detalle de producto
+    $routes->get('detalle/(:num)', 'Productos::detalle/$1', ['as' => 'detalle_producto']);
+    
+    // Gestion de productos (admin/cocinero)
+    $routes->get('gestion', 'Productos::gestion', ['as' => 'gestion_productos']);
+    
+    // Agregar producto
+    $routes->get('agregar', 'Productos::agregar', ['as' => 'agregar_producto']);
+    $routes->post('guardar', 'Productos::guardar', ['as' => 'guardar_producto']);
+    
+    // Editar producto
+    $routes->get('editar/(:num)', 'Productos::editar/$1', ['as' => 'editar_producto']);
+    $routes->post('actualizar/(:num)', 'Productos::actualizar/$1', ['as' => 'actualizar_producto']);
+    
+    // Eliminar producto
+    $routes->get('eliminar/(:num)', 'Productos::eliminar/$1', ['as' => 'eliminar_producto']);
+    
+    // Cambiar estado
+    $routes->get('estado/(:num)/(:alpha)', 'Productos::cambiarEstado/$1/$2', ['as' => 'cambiar_estado_producto']);
+    
+    // API endpoints
+    $routes->get('api', 'Productos::apiProductos', ['as' => 'api_productos']);
+    $routes->get('api/categoria/(:alpha)', 'Productos::apiPorCategoria/$1', ['as' => 'api_productos_categoria']);
+    $routes->get('api/buscar', 'Productos::apiBuscar', ['as' => 'api_buscar_productos']);
+});
+
+// Ruta alias para menu
+$routes->get('/menu', 'Productos::index', ['as' => 'menu']);
+
+// ==========================================
+// RUTAS PROTEGIDAS (Requieren autenticacion)
+// ==========================================
+
+// Dashboard principal
+$routes->get('/dashboard', 'Dashboard::index', ['as' => 'dashboard']);
+
+// ==========================================
+// RUTAS DE PERSONAS
+// ==========================================
+
+$routes->group('personas', static function ($routes) {
+    $routes->get('/', 'Persona::index', ['as' => 'listar_personas']);
+    $routes->get('agregar', 'Persona::agregar', ['as' => 'agregar_persona']);
+    $routes->post('guardar', 'Persona::guardar', ['as' => 'guardar_persona']);
+    $routes->get('editar/(:num)', 'Persona::editar/$1', ['as' => 'editar_persona']);
+    $routes->post('actualizar/(:num)', 'Persona::actualizar/$1', ['as' => 'actualizar_persona']);
+    $routes->get('eliminar/(:num)', 'Persona::eliminar/$1', ['as' => 'eliminar_persona']);
+});
+
+// ==========================================
+
+$routes->group('mesas', static function ($routes) {
+    $routes->get('/', 'Mesa::index', ['as' => 'listar_mesas']);
+    $routes->get('gestion', 'Mesa::gestion', ['as' => 'gestion_mesas']);
+    $routes->get('agregar', 'Mesa::agregar', ['as' => 'agregar_mesa']);
+    $routes->post('guardar', 'Mesa::guardar', ['as' => 'guardar_mesa']);
+    $routes->get('editar/(:num)', 'Mesa::editar/$1', ['as' => 'editar_mesa']);
+    $routes->post('actualizar/(:num)', 'Mesa::actualizar/$1', ['as' => 'actualizar_mesa']);
+    $routes->get('eliminar/(:num)', 'Mesa::eliminar/$1', ['as' => 'eliminar_mesa']);
+    $routes->get('estado/(:num)/(:alpha)', 'Mesa::cambiarEstado/$1/$2', ['as' => 'cambiar_estado_mesa']);
+});
+
