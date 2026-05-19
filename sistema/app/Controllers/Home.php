@@ -22,7 +22,7 @@ class Home extends BaseController
      * Roles permitidos en el sistema
      * @var array
      */
-    private const ROLES_PERMITIDOS = ['admin', 'mesero', 'cocinero', 'cliente'];
+    private const ROLES_PERMITIDOS = ['admin', 'mesero', 'cocinero', 'cliente', 'mesa'];
 
     /**
      * Mensajes de error personalizados
@@ -348,9 +348,10 @@ class Home extends BaseController
     {
         $rutas = [
             'admin' => '/dashboard',
-            'mesero' => '/dashboard',
-            'cocinero' => '/dashboard',
-            'cliente' => '/dashboard',
+            'mesero' => '/mesero',
+            'cocinero' => '/cocina',
+            'cliente' => '/cliente',
+            'mesa' => '/cliente',
             'aprendiz' => '/dashboard'
         ];
 

@@ -53,7 +53,7 @@ $rolesPermitidos = [
     'admin' => ['admin'],
     'staff' => ['admin', 'mesero', 'cocinero'],
     'ventas' => ['admin', 'mesero'],
-    'todos' => ['admin', 'mesero', 'cocinero', 'cliente', 'aprendiz']
+    'todos' => ['admin', 'mesero', 'cocinero', 'cliente', 'mesa', 'aprendiz']
 ];
 
 // ==========================================
@@ -84,6 +84,22 @@ $routes->get('/dashboard', 'Home::dashboard', ['as' => 'dashboard']);
 
 // Cerrar sesion
 $routes->get('/logout', 'Home::logout', ['as' => 'logout']);
+
+// ==========================================
+// RUTAS DE GESTION DE USUARIOS
+// ==========================================
+
+// Listar usuarios (solo admin)
+$routes->get('/usuarios', 'Home::usuarios', ['as' => 'usuarios']);
+
+// Editar usuario
+$routes->get('/editar/(:num)', 'Home::editar/$1', ['as' => 'editar_usuario']);
+
+// Actualizar usuario (POST)
+$routes->post('/actualizar/(:num)', 'Home::actualizar/$1', ['as' => 'actualizar_usuario']);
+
+// Eliminar usuario
+$routes->get('/eliminar/(:num)', 'Home::eliminar/$1', ['as' => 'eliminar_usuario']);
 
 // ==========================================
 // RUTAS DE PERSONAS
