@@ -33,8 +33,10 @@ if ($tipo_doc_id === null) {
 }
 
 // Usar prepared statement para mayor seguridad
-$sql = "SELECT u.pkfk_id_usuario, pr.pkfk_idRol, r.Nom_rol 
+$sql = "SELECT u.pkfk_id_usuario, u.Correo_usu, u.pkfk_Tipo_doc, pr.pkfk_idRol, r.Nom_rol, 
+               p.Nom1_usu, p.Ape1_usu
         FROM Usuario u
+        INNER JOIN Persona p ON u.pkfk_id_usuario = p.id_usuario AND u.pkfk_Tipo_doc = p.pkfk_Tipo_doc
         LEFT JOIN Persona_has_Rol pr ON u.pkfk_id_usuario = pr.pkfk_id_usuario AND u.pkfk_Tipo_doc = pr.pkfk_Tipo_doc
         LEFT JOIN Rol r ON pr.pkfk_idRol = r.idRol
         WHERE u.Correo_usu=? AND u.Password=? AND u.pkfk_Tipo_doc=?";
@@ -54,15 +56,34 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $_SESSION["email"] = $email;
     $_SESSION["tipo_doc"] = $tipo_doc;
+    $_SESSION["tipo_doc_id"] = $tipo_doc_id;
     $_SESSION["user_id"] = $row["pkfk_id_usuario"];
     $_SESSION["rol"] = $row["Nom_rol"];
+    $_SESSION["rol_id"] = $row["pkfk_idRol"];
+    $_SESSION["nombre"] = $row["Nom1_usu"] . " " . $row["Ape1_usu"];
+    $_SESSION["logueado"] = true;
     
-    // Mensaje según el rol y redirección
+    // Redirección según el rol
     $rol = $row["Nom_rol"];
-    if ($rol === "Administrador") {
-        echo "<script>alert('Bienvenido Administrador: " . htmlspecialchars($row["pkfk_id_usuario"]) . "'); window.location.href='Inicio.html';</script>";
-    } else {
-        header("Location: Inicio.html");
+    $nombre_usuario = htmlspecialchars($row["Nom1_usu"] . " " . $row["Ape1_usu"]);
+    
+    switch ($rol) {
+        case "Administrador":
+            echo "<script>alert('Bienvenido Administrador: " . $nombre_usuario . "'); window.location.href='Dashboard.php';</script>";
+            break;
+        case "Cocinero":
+            echo "<script>alert('Bienvenido Cocinero: " . $nombre_usuario . "'); window.location.href='Vista_Cocinero.php';</script>";
+            break;
+        case "Mesero":
+            echo "<script>alert('Bienvenido Mesero: " . $nombre_usuario . "'); window.location.href='Vista_Mesero.php';</script>";
+            break;
+        case "Mesa":
+        case "Cliente":
+            echo "<script>alert('Bienvenido Cliente: " . $nombre_usuario . "'); window.location.href='Vista_Cliente.php';</script>";
+            break;
+        default:
+            echo "<script>alert('Bienvenido: " . $nombre_usuario . "'); window.location.href='Inicio.php';</script>";
+            break;
     }
     exit();
 } else {
@@ -72,4 +93,4 @@ if ($result->num_rows > 0) {
 
 $stmt->close();
 $connection->close();
-?>     
+?>

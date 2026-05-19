@@ -212,8 +212,9 @@ INSERT INTO Rol (idRol,Nom_rol) VALUES
 (4, 'Mesa');
 
 INSERT INTO Tipo_doc (id_doc,tipo_doc,estado) VALUES 
-('1', 'Cedula de cuidadania', 1),
-('2', 'Tarjeta de indentidad', 1);
+('1', 'Cédula de Ciudadanía', 1),
+('2', 'Tarjeta de Identidad', 1),
+('3', 'Cédula de Extranjería', 1);
 
 INSERT INTO Persona (pkfk_Tipo_doc,id_usuario,Nom1_usu,Nom2_usu,Ape1_usu,Ape2_usu,Telefono) VALUES 
 ('1', 1002655550, 'Juan', 'Carlos', 'Perez', 'Lopez', 3001234567),
