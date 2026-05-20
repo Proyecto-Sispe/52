@@ -2,15 +2,36 @@
 
 namespace App\Controllers;
 
+use App\Models\PedidoModel;
+use App\Models\NotificacionModel;
+use App\Models\MesaModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use Exception;
 
 /**
  * Controlador de Cocina
  * Maneja la vista y operaciones del cocinero
+ * Conectado con la base de datos real
  */
 class Cocina extends BaseController
 {
+    /**
+     * Modelos
+     */
+    protected PedidoModel $pedidoModel;
+    protected NotificacionModel $notificacionModel;
+    protected MesaModel $mesaModel;
+
+    /**
+     * Constructor - Inicializa los modelos
+     */
+    public function __construct()
+    {
+        $this->pedidoModel = new PedidoModel();
+        $this->notificacionModel = new NotificacionModel();
+        $this->mesaModel = new MesaModel();
+    }
+
     /**
      * Verifica si el usuario tiene sesion activa
      * @return bool
@@ -27,7 +48,23 @@ class Cocina extends BaseController
     private function esCocinero(): bool
     {
         $rol = session('rol') ?? '';
-        return in_array($rol, ['cocinero', 'admin']);
+        return in_array($rol, ['cocinero', 'Cocinero', 'admin', 'Administrador']);
+    }
+
+    /**
+     * Registra actividad
+     * @param string $accion
+     * @param array $datos
+     */
+    private function registrarActividad(string $accion, array $datos = []): void
+    {
+        $log = [
+            'fecha' => date('Y-m-d H:i:s'),
+            'usuario_id' => session('id') ?? 'anonimo',
+            'accion' => $accion,
+            'datos' => json_encode($datos)
+        ];
+        log_message('info', 'Actividad Cocina: ' . json_encode($log));
     }
 
     /**
@@ -47,12 +84,15 @@ class Cocina extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        // Datos de ejemplo (en produccion vendrian de la BD)
+        $this->registrarActividad('vista_cocina');
+
+        // Obtener pedidos desde la BD
         $datos = [
-            'pedidos_pendientes' => $this->obtenerPedidosPorEstado('pendiente'),
-            'pedidos_preparacion' => $this->obtenerPedidosPorEstado('preparacion'),
-            'pedidos_listos' => $this->obtenerPedidosPorEstado('listo'),
-            'estadisticas' => $this->obtenerEstadisticas()
+            'pedidos_pendientes' => $this->obtenerPedidosPorEstado(PedidoModel::ESTADO_PENDIENTE),
+            'pedidos_preparacion' => $this->obtenerPedidosPorEstado(PedidoModel::ESTADO_EN_PREPARACION),
+            'pedidos_listos' => $this->obtenerPedidosPorEstado(PedidoModel::ESTADO_LISTO),
+            'estadisticas' => $this->obtenerEstadisticas(),
+            'notificaciones' => $this->notificacionModel->obtenerParaCocineros()
         ];
 
         return view('vista_cocinero', $datos);
@@ -73,8 +113,24 @@ class Cocina extends BaseController
                 ])->setStatusCode(403);
             }
 
-            // En produccion: actualizar en BD
-            // $this->pedidoModel->update($id, ['estado' => 'listo']);
+            // Obtener el pedido para conocer la mesa
+            $pedido = $this->pedidoModel->obtenerPorId($id);
+            
+            if ($pedido === null) {
+                throw new Exception('Pedido no encontrado');
+            }
+
+            // Actualizar estado en BD
+            $resultado = $this->pedidoModel->marcarListo($id);
+
+            if (!$resultado) {
+                throw new Exception('Error al actualizar el pedido');
+            }
+
+            // Crear notificacion para meseros
+            $this->notificacionModel->notificarPedidoListo($pedido['id_mesa'], $id);
+
+            $this->registrarActividad('pedido_listo', ['pedido_id' => $id]);
 
             return $this->response->setJSON([
                 'error' => false,
@@ -106,19 +162,77 @@ class Cocina extends BaseController
                 ])->setStatusCode(403);
             }
 
-            $estadosValidos = ['pendiente', 'preparacion', 'listo', 'entregado'];
+            $estadosValidos = [
+                PedidoModel::ESTADO_PENDIENTE,
+                PedidoModel::ESTADO_EN_PREPARACION,
+                PedidoModel::ESTADO_LISTO,
+                PedidoModel::ESTADO_ENTREGADO
+            ];
+
             if (!in_array($estado, $estadosValidos)) {
                 throw new Exception('Estado no valido');
             }
 
-            // En produccion: actualizar en BD
-            // $this->pedidoModel->update($id, ['estado' => $estado]);
+            // Actualizar en BD
+            $resultado = $this->pedidoModel->cambiarEstado($id, $estado);
+
+            if (!$resultado) {
+                throw new Exception('Error al cambiar estado');
+            }
+
+            $this->registrarActividad('cambiar_estado_pedido', [
+                'pedido_id' => $id,
+                'nuevo_estado' => $estado
+            ]);
 
             return $this->response->setJSON([
                 'error' => false,
                 'mensaje' => 'Estado actualizado a: ' . $estado,
                 'pedido_id' => $id,
                 'nuevo_estado' => $estado
+            ]);
+
+        } catch (Exception $e) {
+            return $this->response->setJSON([
+                'error' => true,
+                'mensaje' => $e->getMessage()
+            ])->setStatusCode(500);
+        }
+    }
+
+    /**
+     * Toma un pedido para preparacion
+     * @param int $id
+     * @return \CodeIgniter\HTTP\Response
+     */
+    public function tomarPedido(int $id)
+    {
+        try {
+            if (!$this->verificarSesion() || !$this->esCocinero()) {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'mensaje' => 'No autorizado'
+                ])->setStatusCode(403);
+            }
+
+            $cocineroId = session('id');
+
+            // Asignar cocinero y cambiar estado
+            $resultado = $this->pedidoModel->asignarCocinero($id, $cocineroId);
+
+            if (!$resultado) {
+                throw new Exception('Error al tomar el pedido');
+            }
+
+            $this->registrarActividad('tomar_pedido', [
+                'pedido_id' => $id,
+                'cocinero_id' => $cocineroId
+            ]);
+
+            return $this->response->setJSON([
+                'error' => false,
+                'mensaje' => 'Pedido tomado para preparacion',
+                'pedido_id' => $id
             ]);
 
         } catch (Exception $e) {
@@ -143,17 +257,16 @@ class Cocina extends BaseController
                 ])->setStatusCode(403);
             }
 
-            $estado = $this->request->getGet('estado') ?? 'todos';
-
             $pedidos = [
-                'pendientes' => $this->obtenerPedidosPorEstado('pendiente'),
-                'preparacion' => $this->obtenerPedidosPorEstado('preparacion'),
-                'listos' => $this->obtenerPedidosPorEstado('listo')
+                'pendientes' => $this->obtenerPedidosPorEstado(PedidoModel::ESTADO_PENDIENTE),
+                'preparacion' => $this->obtenerPedidosPorEstado(PedidoModel::ESTADO_EN_PREPARACION),
+                'listos' => $this->obtenerPedidosPorEstado(PedidoModel::ESTADO_LISTO)
             ];
 
             return $this->response->setJSON([
                 'error' => false,
                 'datos' => $pedidos,
+                'estadisticas' => $this->obtenerEstadisticas(),
                 'timestamp' => date('Y-m-d H:i:s')
             ]);
 
@@ -166,55 +279,40 @@ class Cocina extends BaseController
     }
 
     /**
-     * Obtiene pedidos por estado (datos de ejemplo)
+     * Obtiene pedidos por estado desde la BD
      * @param string $estado
      * @return array
      */
     private function obtenerPedidosPorEstado(string $estado): array
     {
-        // En produccion: obtener de la BD
-        $pedidosEjemplo = [
-            [
-                'id' => 1,
-                'mesa' => 3,
-                'productos' => [
-                    ['nombre' => 'Hamburguesa Clasica', 'cantidad' => 2, 'observacion' => 'Sin cebolla'],
-                    ['nombre' => 'Papas Fritas', 'cantidad' => 2, 'observacion' => '']
-                ],
-                'estado' => 'pendiente',
-                'hora_pedido' => date('H:i', strtotime('-15 minutes')),
-                'tiempo_transcurrido' => 15,
-                'urgente' => false
-            ],
-            [
-                'id' => 2,
-                'mesa' => 5,
-                'productos' => [
-                    ['nombre' => 'Pizza Pepperoni', 'cantidad' => 1, 'observacion' => 'Extra queso'],
-                    ['nombre' => 'Gaseosa', 'cantidad' => 2, 'observacion' => '']
-                ],
-                'estado' => 'preparacion',
-                'hora_pedido' => date('H:i', strtotime('-25 minutes')),
-                'tiempo_transcurrido' => 25,
-                'urgente' => true
-            ],
-            [
-                'id' => 3,
-                'mesa' => 1,
-                'productos' => [
-                    ['nombre' => 'Ensalada Caesar', 'cantidad' => 1, 'observacion' => 'Sin anchoas']
-                ],
-                'estado' => 'listo',
-                'hora_pedido' => date('H:i', strtotime('-10 minutes')),
-                'tiempo_transcurrido' => 10,
-                'urgente' => false
-            ]
-        ];
+        try {
+            $pedidos = $this->pedidoModel->obtenerPorEstado($estado);
+            
+            // Agregar detalles y calcular tiempos
+            foreach ($pedidos as &$pedido) {
+                $pedido['detalles'] = $this->pedidoModel->obtenerDetalles($pedido['id_pedido']);
+                $pedido['tiempo_transcurrido'] = $this->pedidoModel->calcularTiempoTranscurrido($pedido['fecha_pedido']);
+                $pedido['hora_pedido'] = date('H:i', strtotime($pedido['fecha_pedido']));
+                $pedido['urgente'] = $pedido['prioridad'] === PedidoModel::PRIORIDAD_URGENTE;
+                
+                // Formatear productos para vista
+                $productos = [];
+                foreach ($pedido['detalles'] as $detalle) {
+                    $productos[] = [
+                        'nombre' => $detalle['producto_nombre'],
+                        'cantidad' => $detalle['cantidad'],
+                        'observacion' => $detalle['observaciones'] ?? ''
+                    ];
+                }
+                $pedido['productos'] = $productos;
+            }
 
-        // Filtrar por estado
-        return array_filter($pedidosEjemplo, function($p) use ($estado) {
-            return $p['estado'] === $estado;
-        });
+            return $pedidos;
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener pedidos por estado: ' . $e->getMessage());
+            return [];
+        }
     }
 
     /**
@@ -223,11 +321,26 @@ class Cocina extends BaseController
      */
     private function obtenerEstadisticas(): array
     {
-        return [
-            'pendientes' => count($this->obtenerPedidosPorEstado('pendiente')),
-            'preparacion' => count($this->obtenerPedidosPorEstado('preparacion')),
-            'listos' => count($this->obtenerPedidosPorEstado('listo')),
-            'urgentes' => 1
-        ];
+        try {
+            $stats = $this->pedidoModel->obtenerEstadisticas();
+            
+            return [
+                'pendientes' => $stats['pendientes'] ?? 0,
+                'preparacion' => $stats['en_preparacion'] ?? 0,
+                'listos' => $stats['listos'] ?? 0,
+                'urgentes' => $stats['urgentes'] ?? 0,
+                'total_hoy' => $stats['total_hoy'] ?? 0
+            ];
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener estadisticas: ' . $e->getMessage());
+            return [
+                'pendientes' => 0,
+                'preparacion' => 0,
+                'listos' => 0,
+                'urgentes' => 0,
+                'total_hoy' => 0
+            ];
+        }
     }
 }

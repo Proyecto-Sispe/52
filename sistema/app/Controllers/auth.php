@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\UsuarioModel;
+use App\Models\PersonaModel;
 use Exception;
 
 /**
@@ -18,10 +18,10 @@ use Exception;
 class Auth extends BaseController
 {
     /**
-     * Modelo de usuario
-     * @var UsuarioModel
+     * Modelo de persona
+     * @var PersonaModel
      */
-    protected UsuarioModel $usuarioModel;
+    protected PersonaModel $personaModel;
 
     /**
      * Roles permitidos en el sistema
@@ -62,7 +62,7 @@ class Auth extends BaseController
      */
     public function __construct()
     {
-        $this->usuarioModel = new UsuarioModel();
+        $this->personaModel = new PersonaModel();
     }
 
     // ==========================================
@@ -418,32 +418,13 @@ class Auth extends BaseController
             $correo = strtolower(trim($correo));
 
             // Buscar usuario en la base de datos
-            $usuario = $this->usuarioModel->buscarPorCorreo($correo);
+            $persona = $this->personaModel->autenticar($correo, $password);
 
-            // Condicion: verificar si el usuario existe
-            if ($usuario === null) {
+            // Condicion: verificar si el usuario existe y password correcto
+            if ($persona === null) {
                 $this->registrarIntentoFallido($ip);
                 $this->registrarActividad('login_fallido', [
-                    'motivo' => 'usuario_no_existe',
-                    'correo' => $correo
-                ]);
-                throw new Exception($this->obtenerMensajeError('credenciales_invalidas'));
-            }
-
-            // Condicion: verificar si el usuario esta activo
-            if (isset($usuario['activo']) && $usuario['activo'] == 0) {
-                $this->registrarActividad('login_fallido', [
-                    'motivo' => 'usuario_inactivo',
-                    'correo' => $correo
-                ]);
-                throw new Exception($this->obtenerMensajeError('usuario_inactivo'));
-            }
-
-            // Condicion: verificar contraseña
-            if (!password_verify($password, $usuario['password'])) {
-                $this->registrarIntentoFallido($ip);
-                $this->registrarActividad('login_fallido', [
-                    'motivo' => 'password_incorrecto',
+                    'motivo' => 'credenciales_invalidas',
                     'correo' => $correo
                 ]);
                 throw new Exception($this->obtenerMensajeError('credenciales_invalidas'));
@@ -452,12 +433,17 @@ class Auth extends BaseController
             // Login exitoso - Reiniciar intentos
             $this->reiniciarIntentosLogin($ip);
 
+            // Mapear rol de la BD a rol del sistema
+            $rolSistema = $this->mapearRol($persona['rol'] ?? 'Cliente');
+
             // Crear sesion
             $datosSesion = [
-                'id' => $usuario['id'],
-                'nombre' => $usuario['nombre'],
-                'correo' => $usuario['correo'],
-                'rol' => $usuario['rol'],
+                'id' => $persona['id_usuario'],
+                'tipo_doc' => $persona['pkfk_Tipo_doc'],
+                'nombre' => $this->personaModel->getNombreCompleto($persona),
+                'correo' => $persona['Correo_usu'],
+                'rol' => $rolSistema,
+                'rol_id' => $persona['idRol'] ?? 4,
                 'logueado' => true,
                 'tiempo_login' => time()
             ];
@@ -469,10 +455,10 @@ class Auth extends BaseController
                 session()->set('tiempo_expiracion', time() + (86400 * 30)); // 30 dias
             }
 
-            $this->registrarActividad('login_exitoso', ['usuario_id' => $usuario['id']]);
+            $this->registrarActividad('login_exitoso', ['usuario_id' => $persona['id_usuario']]);
 
             // Redirigir segun rol
-            return $this->redirigirPorRol($usuario['rol']);
+            return $this->redirigirPorRol($rolSistema);
 
         } catch (Exception $e) {
             $this->registrarActividad('error_login', ['error' => $e->getMessage()]);
@@ -549,22 +535,32 @@ class Auth extends BaseController
             }
 
             // Verificar si correo ya existe
-            $existente = $this->usuarioModel->buscarPorCorreo($datos['correo']);
+            $existente = $this->personaModel->buscarPorCorreo($datos['correo']);
             if ($existente !== null) {
                 throw new Exception($this->obtenerMensajeError('correo_duplicado'));
             }
 
-            // Preparar datos para insercion
-            $datosInsertar = [
-                'nombre' => $datos['nombre'],
-                'correo' => strtolower($datos['correo']),
-                'password' => password_hash($datos['password'], PASSWORD_DEFAULT, ['cost' => 12]),
-                'rol' => $datos['rol'],
-                'activo' => 1
+            // Obtener el siguiente ID disponible o usar documento como ID
+            $idUsuario = $datos['documento'] ?? time();
+
+            // Mapear rol del formulario a ID de rol de la BD
+            $rolId = $this->obtenerRolId($datos['rol']);
+
+            // Crear persona con rol
+            $datosPersona = [
+                'id_usuario' => $idUsuario,
+                'pkfk_Tipo_doc' => 1, // Cedula de Ciudadania por defecto
+                'Nom1_usu' => $this->obtenerPrimerNombre($datos['nombre']),
+                'Nom2_usu' => $this->obtenerSegundoNombre($datos['nombre']),
+                'Ape1_usu' => $this->obtenerPrimerApellido($datos['nombre']),
+                'Ape2_usu' => null,
+                'Telefono' => $datos['telefono'] ?? 0,
+                'Correo_usu' => strtolower($datos['correo']),
+                'Password' => $datos['password'],
+                'estado' => 1
             ];
 
-            // Insertar usuario
-            $resultado = $this->usuarioModel->insert($datosInsertar);
+            $resultado = $this->personaModel->crearPersona($datosPersona, $rolId);
 
             // Condicion: verificar resultado
             if ($resultado === false) {
@@ -572,7 +568,7 @@ class Auth extends BaseController
             }
 
             $this->registrarActividad('registro_exitoso', [
-                'usuario_id' => $resultado,
+                'usuario_id' => $idUsuario,
                 'correo' => $datos['correo']
             ]);
 
@@ -635,9 +631,13 @@ class Auth extends BaseController
         // Array de rutas por rol
         $rutasPorRol = [
             'admin' => '/dashboard',
+            'Administrador' => '/dashboard',
             'mesero' => '/mesero',
+            'Mesero' => '/mesero',
             'cocinero' => '/cocina',
+            'Cocinero' => '/cocina',
             'cliente' => '/cliente',
+            'Cliente' => '/cliente',
             'aprendiz' => '/dashboard'
         ];
 
@@ -743,5 +743,89 @@ class Auth extends BaseController
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/auth/recuperar-password');
         }
+    }
+
+    // ==========================================
+    // FUNCIONES DE MAPEO Y UTILIDADES
+    // ==========================================
+
+    /**
+     * Mapea el rol de la BD al rol del sistema
+     * @param string $rolBD
+     * @return string
+     */
+    private function mapearRol(string $rolBD): string
+    {
+        $mapeo = [
+            'Administrador' => 'admin',
+            'Cocinero' => 'cocinero',
+            'Mesero' => 'mesero',
+            'Cliente' => 'cliente'
+        ];
+
+        return $mapeo[$rolBD] ?? 'cliente';
+    }
+
+    /**
+     * Obtiene el ID del rol por nombre
+     * @param string $rol
+     * @return int
+     */
+    private function obtenerRolId(string $rol): int
+    {
+        $roles = [
+            'admin' => 1,
+            'Administrador' => 1,
+            'cocinero' => 2,
+            'Cocinero' => 2,
+            'mesero' => 3,
+            'Mesero' => 3,
+            'cliente' => 4,
+            'Cliente' => 4,
+            'aprendiz' => 4
+        ];
+
+        return $roles[$rol] ?? 4;
+    }
+
+    /**
+     * Obtiene el primer nombre de un nombre completo
+     * @param string $nombreCompleto
+     * @return string
+     */
+    private function obtenerPrimerNombre(string $nombreCompleto): string
+    {
+        $partes = explode(' ', trim($nombreCompleto));
+        return $partes[0] ?? '';
+    }
+
+    /**
+     * Obtiene el segundo nombre de un nombre completo
+     * @param string $nombreCompleto
+     * @return string|null
+     */
+    private function obtenerSegundoNombre(string $nombreCompleto): ?string
+    {
+        $partes = explode(' ', trim($nombreCompleto));
+        if (count($partes) > 2) {
+            return $partes[1];
+        }
+        return null;
+    }
+
+    /**
+     * Obtiene el primer apellido de un nombre completo
+     * @param string $nombreCompleto
+     * @return string
+     */
+    private function obtenerPrimerApellido(string $nombreCompleto): string
+    {
+        $partes = explode(' ', trim($nombreCompleto));
+        if (count($partes) > 2) {
+            return $partes[2];
+        } elseif (count($partes) > 1) {
+            return $partes[1];
+        }
+        return $partes[0] ?? '';
     }
 }

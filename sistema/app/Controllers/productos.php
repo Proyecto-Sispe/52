@@ -3,18 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\ProductoModel;
+use App\Models\CategoriaModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use Exception;
 
 /**
  * Controlador de Productos
  * Maneja listado, detalles y operaciones CRUD de productos
- * 
- * Funciones PHP utilizadas:
- * - Excepciones (try-catch) para manejo de errores
- * - Condiciones (if-else) para validaciones y filtros
- * - Bucles (foreach, for, while) para procesamiento de datos
- * - Operaciones para calculos y transformaciones
+ * Conectado con la base de datos real
  */
 class Productos extends BaseController
 {
@@ -25,34 +21,18 @@ class Productos extends BaseController
     protected ProductoModel $productoModel;
 
     /**
-     * Categorias disponibles
-     * @var array
+     * Modelo de categoria
+     * @var CategoriaModel
      */
-    private const CATEGORIAS = [
-        'entradas' => ['nombre' => 'Entradas', 'icono' => 'fa-utensils'],
-        'platos_fuertes' => ['nombre' => 'Platos Fuertes', 'icono' => 'fa-drumstick-bite'],
-        'bebidas' => ['nombre' => 'Bebidas', 'icono' => 'fa-glass-cheers'],
-        'postres' => ['nombre' => 'Postres', 'icono' => 'fa-ice-cream'],
-        'acompanantes' => ['nombre' => 'Acompañantes', 'icono' => 'fa-carrot'],
-        'especiales' => ['nombre' => 'Especiales del Día', 'icono' => 'fa-star']
-    ];
+    protected CategoriaModel $categoriaModel;
 
     /**
-     * Estados de producto
-     * @var array
-     */
-    private const ESTADOS = [
-        'disponible' => ['nombre' => 'Disponible', 'clase' => 'success'],
-        'agotado' => ['nombre' => 'Agotado', 'clase' => 'danger'],
-        'oculto' => ['nombre' => 'Oculto', 'clase' => 'secondary']
-    ];
-
-    /**
-     * Constructor - Inicializa el modelo
+     * Constructor - Inicializa los modelos
      */
     public function __construct()
     {
         $this->productoModel = new ProductoModel();
+        $this->categoriaModel = new CategoriaModel();
     }
 
     // ==========================================
@@ -401,7 +381,10 @@ class Productos extends BaseController
             $this->registrarActividad('vista_productos');
 
             // Obtener todos los productos
-            $productos = $this->productoModel->obtenerTodos(['estado' => 'disponible']);
+            $productos = $this->productoModel->obtenerTodos();
+
+            // Obtener categorias de la BD
+            $categorias = $this->categoriaModel->obtenerTodas();
 
             // Obtener filtros de la URL
             $filtros = [
@@ -431,8 +414,7 @@ class Productos extends BaseController
             $datos = [
                 'productos' => $productosOrdenados,
                 'productosAgrupados' => $productosAgrupados,
-                'categorias' => self::CATEGORIAS,
-                'estados' => self::ESTADOS,
+                'categorias' => $categorias,
                 'estadisticas' => $estadisticas,
                 'filtros' => $filtros,
                 'orden' => ['campo' => $ordenCampo, 'direccion' => $ordenDir]
@@ -461,7 +443,7 @@ class Productos extends BaseController
             }
 
             // Buscar producto
-            $producto = $this->productoModel->find($id);
+            $producto = $this->productoModel->obtenerPorId($id);
 
             // Condicion: verificar existencia
             if ($producto === null) {

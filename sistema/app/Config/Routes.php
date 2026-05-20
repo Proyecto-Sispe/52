@@ -242,15 +242,27 @@ $routes->group('facturas', static function ($routes) {
 // Vista del cocinero
 $routes->get('/cocina', 'Cocina::index', ['as' => 'vista_cocina']);
 $routes->post('/cocina/pedido/(:num)/listo', 'Cocina::marcarListo/$1', ['as' => 'marcar_pedido_listo']);
+$routes->post('/cocina/pedido/(:num)/tomar', 'Cocina::tomarPedido/$1', ['as' => 'tomar_pedido']);
+$routes->get('/cocina/pedido/(:num)/estado/(:alpha)', 'Cocina::cambiarEstado/$1/$2', ['as' => 'cocina_cambiar_estado']);
+$routes->get('/cocina/api/pedidos', 'Cocina::apiPedidos', ['as' => 'cocina_api_pedidos']);
 
 // Vista del mesero
 $routes->get('/mesero', 'Mesero::index', ['as' => 'vista_mesero']);
 $routes->get('/mesero/mesas', 'Mesero::mesas', ['as' => 'mesero_mesas']);
+$routes->post('/mesero/pedido/(:num)/entregado', 'Mesero::marcarEntregado/$1', ['as' => 'marcar_pedido_entregado']);
+$routes->get('/mesero/api/pedidos', 'Mesero::apiPedidos', ['as' => 'mesero_api_pedidos']);
+$routes->get('/mesero/api/notificaciones', 'Mesero::apiNotificaciones', ['as' => 'mesero_api_notificaciones']);
+$routes->post('/mesero/notificacion/(:num)/leida', 'Mesero::marcarNotificacionLeida/$1', ['as' => 'marcar_notificacion_leida']);
 
 // Vista del cliente
 $routes->get('/cliente', 'Cliente::index', ['as' => 'vista_cliente']);
+$routes->post('/cliente/acceso', 'Cliente::acceso', ['as' => 'cliente_acceso']);
 $routes->get('/cliente/menu', 'Cliente::menu', ['as' => 'cliente_menu']);
 $routes->get('/cliente/pedidos', 'Cliente::pedidos', ['as' => 'cliente_pedidos']);
+$routes->post('/cliente/agregar-producto', 'Cliente::agregarProducto', ['as' => 'cliente_agregar_producto']);
+$routes->post('/cliente/confirmar-pedido', 'Cliente::confirmarPedido', ['as' => 'cliente_confirmar_pedido']);
+$routes->get('/cliente/api/pedidos', 'Cliente::apiPedidos', ['as' => 'cliente_api_pedidos']);
+$routes->get('/cliente/salir', 'Cliente::salir', ['as' => 'cliente_salir']);
 
 // ==========================================
 // RUTAS API (Endpoints JSON)
