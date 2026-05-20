@@ -34,11 +34,25 @@ class Productos extends BaseController
     ];
 
     /**
+     * Categorías de productos
+     * @var array
+     */
+    private const CATEGORIAS = [
+        'hamburguesa' => ['nombre' => 'Hamburguesas', 'icono' => 'fa-hamburger'],
+        'perro' => ['nombre' => 'Perros Calientes', 'icono' => 'fa-hotdog'],
+        'papas' => ['nombre' => 'Papas', 'icono' => 'fa-french-fries'],
+        'gaseosa' => ['nombre' => 'Gaseosas', 'icono' => 'fa-glass-whiskey'],
+        'postre' => ['nombre' => 'Postres', 'icono' => 'fa-ice-cream'],
+        'otro' => ['nombre' => 'Otros', 'icono' => 'fa-ellipsis-h'],
+    ];
+
+    /**
      * Constructor - Inicializa el modelo
      */
     public function __construct()
     {
         $this->productoModel = new ProductoModel();
+        $this->categoriaModel = new CategoriaModel();
     }
 
     // ==========================================
@@ -387,7 +401,11 @@ class Productos extends BaseController
             $this->registrarActividad('vista_productos');
 
             // Obtener todos los productos
-            $productos = $this->productoModel->obtenerTodos(['estado' => 'disponible']);
+            $productos = $this->productoModel->obtenerTodos();
+
+            // Obtener categorias de la BD
+            $categorias = $this->categoriaModel->obtenerTodas();
+
 
             // Obtener filtros de la URL
             $filtros = [
@@ -417,8 +435,7 @@ class Productos extends BaseController
             $datos = [
                 'productos' => $productosOrdenados,
                 'productosAgrupados' => $productosAgrupados,
-                'categorias' => self::CATEGORIAS,
-                'estados' => self::ESTADOS,
+                'categorias' => $categorias,
                 'estadisticas' => $estadisticas,
                 'filtros' => $filtros,
                 'orden' => ['campo' => $ordenCampo, 'direccion' => $ordenDir]
@@ -447,7 +464,7 @@ class Productos extends BaseController
             }
 
             // Buscar producto
-            $producto = $this->productoModel->find($id);
+            $producto = $this->productoModel->obtenerPorId($id);
 
             // Condicion: verificar existencia
             if ($producto === null) {

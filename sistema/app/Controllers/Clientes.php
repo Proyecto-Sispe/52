@@ -69,7 +69,7 @@ class Cliente extends BaseController
             'accion' => $accion,
             'datos' => json_encode($datos)
         ];
-        log_message('info', 'Customer Activity: ' . json_encode($log));
+        log_message('info', 'Actividad Cliente: ' . json_encode($log));
     }
 
     /**
@@ -87,6 +87,8 @@ class Cliente extends BaseController
         }
 
         $this->registrarActividad('customer_view');
+
+        $this->registrarActividad('vista_cliente');
 
         // Datos para la vista desde la BD
         $datos = [
@@ -114,14 +116,11 @@ class Cliente extends BaseController
                 throw new Exception('Codigo de mesa invalido');
             }
 
-            // Verify code in DB
+             // Verificar codigo en BD
             $sesionMesa = $this->mesaModel->verificarCodigoAcceso(strtoupper($codigo));
 
             if ($sesionMesa === null) {
                 throw new Exception('Codigo de mesa no encontrado o expirado');
-            }
-            // En produccion: verificar codigo en BD
-            // $mesa = $this->mesaModel->verificarCodigo($codigo);
 
             // Crear sesion de cliente
             session()->set([
@@ -130,17 +129,17 @@ class Cliente extends BaseController
                 'mesa_capacidad' => $sesionMesa['Capacidad'],
                 'logueado' => true,
                 'rol' => 'mesa',
-                'nombre_mesa' => 'Mesa ' . $sesionMesa['id_mesa']
+                'nombre' => 'Mesa ' . $sesionMesa['id_mesa']
             ]);
 
             $this->registrarActividad('acceso_mesa', [
                 'codigo' => $codigo,
-                'mesa' => $sessionMesa['table_id']
+                'mesa' => $sessionMesa['id_mesa']
             ]);
 
             return redirect()->to('/cliente');
 
-            catch (Exception e) {
+        }    catch (Exception e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/cliente');
         }
@@ -358,7 +357,7 @@ class Cliente extends BaseController
     private function obtenerProductos(): array
     {
         try {
-            $products = $this->productModel->getAll();
+            $products = $this->productoModel->getAll();
             
         // Format for view
             $productosFormateados = [];
@@ -456,7 +455,7 @@ class Cliente extends BaseController
      */
     public function salir()
     {
-        $this->registerActivity('exit_client', [
+        $this->registrarActividad('exit_client', [
             'mesa' => session('mesa_numero')
         ]);
 
