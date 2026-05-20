@@ -7,14 +7,7 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 use Exception;
 
 /**
- * Controlador de Productos
- * Maneja listado, detalles y operaciones CRUD de productos
- * 
- * Funciones PHP utilizadas:
- * - Excepciones (try-catch) para manejo de errores
- * - Condiciones (if-else) para validaciones y filtros
- * - Bucles (foreach, for, while) para procesamiento de datos
- * - Operaciones para calculos y transformaciones
+ * Conectado con la base de datos real
  */
 class Productos extends BaseController
 {
@@ -25,17 +18,10 @@ class Productos extends BaseController
     protected ProductoModel $productoModel;
 
     /**
-     * Categorias disponibles
-     * @var array
+     * Modelo de categoria
+     * @var CategoriaModel
      */
-    private const CATEGORIAS = [
-        'entradas' => ['nombre' => 'Entradas', 'icono' => 'fa-utensils'],
-        'platos_fuertes' => ['nombre' => 'Platos Fuertes', 'icono' => 'fa-drumstick-bite'],
-        'bebidas' => ['nombre' => 'Bebidas', 'icono' => 'fa-glass-cheers'],
-        'postres' => ['nombre' => 'Postres', 'icono' => 'fa-ice-cream'],
-        'acompanantes' => ['nombre' => 'Acompañantes', 'icono' => 'fa-carrot'],
-        'especiales' => ['nombre' => 'Especiales del Día', 'icono' => 'fa-star']
-    ];
+    protected CategoriaModel $categoriaModel;
 
     /**
      * Estados de producto

@@ -2,15 +2,36 @@
 
 namespace App\Controllers;
 
+use App\Models\PedidoModel;
+use App\Models\MesaModel;
+use App\Models\NotificacionModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use Exception;
 
 /**
  * Controlador de Mesero
- * Maneja la vista y operaciones del mesero
+ * Manages the waiter's view and operations
+ * Conectado con la base de datos real
  */
 class Mesero extends BaseController
 {
+    /**
+     * Modelos
+     */
+    protected PedidoModel $pedidoModel;
+    protected MesaModel $mesaModel;
+    protected NotificacionModel $notificacionModel;
+
+    /**
+     * Constructor - Inicializa los modelos
+     */
+    public function __construct()
+    {
+        $this->pedidoModel = new PedidoModel();
+        $this->mesaModel = new MesaModel();
+        $this->notificacionModel = new NotificacionModel();
+    }
+
     /**
      * Verifica si el usuario tiene sesion activa
      * @return bool
@@ -27,7 +48,23 @@ class Mesero extends BaseController
     private function esMesero(): bool
     {
         $rol = session('rol') ?? '';
-        return in_array($rol, ['mesero', 'admin']);
+        return in_array($rol, ['waiter', 'Waiter', 'admin', 'Administrator']);;
+    }
+
+    /**
+     * Registra actividad
+     * @param string $accion
+     * @param array $datos
+     */
+    private function registrarActividad(string $accion, array $datos = []): void
+    {
+        $log = [
+            'fecha' => date('Y-m-d H:i:s'),
+            'usuario_id' => session('id') ?? 'anonimo',
+            'accion' => $accion,
+            'datos' => json_encode($datos)
+        ];
+        log_message('info', 'Actividad Mesero: ' . json_encode($log));
     }
 
     /**
@@ -47,7 +84,9 @@ class Mesero extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        // Datos de ejemplo
+        $this->registrarActividad('vista_mesero');
+
+        // Obtener datos desde la BD
         $datos = [
             'pedidos' => $this->obtenerTodosPedidos(),
             'notificaciones' => $this->obtenerNotificaciones(),
@@ -69,7 +108,8 @@ class Mesero extends BaseController
         }
 
         $datos = [
-            'mesas' => $this->obtenerMesas()
+            'mesas' => $this->obtenerMesas(),
+            'estadisticas' => $this->mesaModel->obtenerEstadisticas()
         ];
 
         return view('vista_mesas', $datos);
@@ -90,8 +130,14 @@ class Mesero extends BaseController
                 ])->setStatusCode(403);
             }
 
-            // En produccion: actualizar en BD
-            // $this->pedidoModel->update($id, ['estado' => 'entregado']);
+            // Actualizar en BD
+            $resultado = $this->pedidoModel->marcarEntregado($id);
+
+            if (!$resultado) {
+                throw new Exception('Error al marcar pedido como entregado');
+            }
+
+            $this->registrarActividad('pedido_entregado', ['pedido_id' => $id]);
 
             return $this->response->setJSON([
                 'error' => false,
@@ -170,89 +216,125 @@ class Mesero extends BaseController
     }
 
     /**
-     * Obtiene todos los pedidos activos (datos de ejemplo)
+     * Mark notification as read
+     * @param int $id
+     * @return \CodeIgniter\HTTP\Response
+     */
+    public function marcarNotificacionLeida(int $id)
+    {
+        try {
+            if (!$this->verificarSesion() || !$this->esMesero()) {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'mensaje' => 'No autorizado'
+                ])->setStatusCode(403);
+            }
+
+            $resultado = $this->notificacionModel->marcarLeida($id);
+
+            return $this->response->setJSON([
+                'error' => !$resultado,
+                'mensaje' => $resultado ? 'Notificacion marcada como leida' : 'Error al marcar notificacion'
+            ]);
+
+        } catch (Exception $e) {
+            return $this->response->setJSON([
+                'error' => true,
+                'mensaje' => $e->getMessage()
+            ])->setStatusCode(500);
+        }
+    }
+
+    /**
+     * Obtiene todos los pedidos activos desde la BD
      * @return array
      */
     private function obtenerTodosPedidos(): array
     {
-        return [
-            [
-                'id' => 1,
-                'mesa' => 3,
-                'cliente' => 'Cliente Mesa 3',
-                'productos' => 'Hamburguesa x2, Papas x2',
-                'estado' => 'pendiente',
-                'hora_pedido' => date('H:i', strtotime('-15 minutes')),
-                'tiempo_espera' => 15,
-                'urgente' => false,
-                'total' => 45000
-            ],
-            [
-                'id' => 2,
-                'mesa' => 5,
-                'cliente' => 'Cliente Mesa 5',
-                'productos' => 'Pizza Pepperoni x1, Gaseosa x2',
-                'estado' => 'listo',
-                'hora_pedido' => date('H:i', strtotime('-25 minutes')),
-                'tiempo_espera' => 25,
-                'urgente' => true,
-                'total' => 38000
-            ],
-            [
-                'id' => 3,
-                'mesa' => 1,
-                'cliente' => 'Cliente Mesa 1',
-                'productos' => 'Ensalada Caesar x1',
-                'estado' => 'preparacion',
-                'hora_pedido' => date('H:i', strtotime('-10 minutes')),
-                'tiempo_espera' => 10,
-                'urgente' => false,
-                'total' => 22000
-            ],
-            [
-                'id' => 4,
-                'mesa' => 8,
-                'cliente' => 'Cliente Mesa 8',
-                'productos' => 'Bandeja Paisa x2, Jugo x2',
-                'estado' => 'listo',
-                'hora_pedido' => date('H:i', strtotime('-22 minutes')),
-                'tiempo_espera' => 22,
-                'urgente' => true,
-                'total' => 56000
-            ]
-        ];
+        try {
+            $pedidos = $this->pedidoModel->obtenerActivos();
+            
+            // Formatear pedidos para la vista
+            $pedidosFormateados = [];
+            foreach ($pedidos as $pedido) {
+                $detalles = $this->pedidoModel->obtenerDetalles($pedido['id_pedido']);
+                $productosTexto = [];
+                
+                foreach ($detalles as $detalle) {
+                    $productosTexto[] = $detalle['producto_nombre'] . ' x' . $detalle['cantidad'];
+                }
+
+                $pedidosFormateados[] = [
+                    'id' => $pedido['id_pedido'],
+                    'mesa' => $pedido['id_mesa'],
+                    'cliente' => $pedido['cliente_nombre'] ?? 'Cliente Mesa ' . $pedido['id_mesa'],
+                    'productos' => implode(', ', $productosTexto),
+                    'estado' => $pedido['estado'],
+                    'hora_pedido' => date('H:i', strtotime($pedido['fecha_pedido'])),
+                    'tiempo_espera' => $this->pedidoModel->calcularTiempoTranscurrido($pedido['fecha_pedido']),
+                    'urgente' => $pedido['prioridad'] === PedidoModel::PRIORIDAD_URGENTE,
+                    'total' => $this->pedidoModel->calcularTotal($pedido['id_pedido']),
+                    'mesero' => $pedido['mesero_nombre'] ?? 'Sin asignar'
+                ];
+            }
+
+            return $pedidosFormateados;
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener pedidos: ' . $e->getMessage());
+            return [];
+        }
     }
 
     /**
-     * Obtiene notificaciones (pedidos listos)
+     * Obtiene notificaciones (pedidos listos) desde la BD
      * @return array
      */
     private function obtenerNotificaciones(): array
     {
-        $pedidos = $this->obtenerTodosPedidos();
-        
-        // Filtrar pedidos listos
-        return array_filter($pedidos, function($p) {
-            return $p['estado'] === 'listo';
-        });
+        try {
+            return $this->notificacionModel->obtenerParaMeseros();
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener notificaciones: ' . $e->getMessage());
+            return [];
+        }
     }
 
     /**
-     * Obtiene mesas con su estado
+    * Obtiene mesas con su estado desde la BD
      * @return array
      */
     private function obtenerMesas(): array
     {
-        return [
-            ['id' => 1, 'numero' => 1, 'capacidad' => 4, 'estado' => 'ocupada', 'pedidos_activos' => 1, 'ubicacion' => 'Interior'],
-            ['id' => 2, 'numero' => 2, 'capacidad' => 2, 'estado' => 'disponible', 'pedidos_activos' => 0, 'ubicacion' => 'Interior'],
-            ['id' => 3, 'numero' => 3, 'capacidad' => 6, 'estado' => 'ocupada', 'pedidos_activos' => 2, 'ubicacion' => 'Interior'],
-            ['id' => 4, 'numero' => 4, 'capacidad' => 4, 'estado' => 'disponible', 'pedidos_activos' => 0, 'ubicacion' => 'Terraza'],
-            ['id' => 5, 'numero' => 5, 'capacidad' => 8, 'estado' => 'ocupada', 'pedidos_activos' => 1, 'ubicacion' => 'Terraza'],
-            ['id' => 6, 'numero' => 6, 'capacidad' => 4, 'estado' => 'reservada', 'pedidos_activos' => 0, 'ubicacion' => 'Interior'],
-            ['id' => 7, 'numero' => 7, 'capacidad' => 2, 'estado' => 'disponible', 'pedidos_activos' => 0, 'ubicacion' => 'Barra'],
-            ['id' => 8, 'numero' => 8, 'capacidad' => 4, 'estado' => 'ocupada', 'pedidos_activos' => 1, 'ubicacion' => 'Interior']
-        ];
+        try {
+            $mesas = $this->mesaModel->obtenerTodas();
+            
+            // Formatear para la vista
+            $mesasFormateadas = [];
+            foreach ($mesas as $mesa) {
+                $estadoTexto = 'disponible';
+                if ($mesa['Estado'] == MesaModel::ESTADO_OCUPADA) {
+                    $estadoTexto = 'ocupada';
+                } elseif ($mesa['Estado'] == MesaModel::ESTADO_RESERVADA) {
+                    $estadoTexto = 'reservada';
+                }
+
+                $mesasFormateadas[] = [
+                    'id' => $mesa['id_Mesa'],
+                    'numero' => $mesa['id_Mesa'],
+                    'capacidad' => $mesa['Capacidad'],
+                    'estado' => $estadoTexto,
+                    'pedidos_activos' => $mesa['pedidos_activos'] ?? 0,
+                    'ubicacion' => $mesa['Ubicacion']
+                ];
+            }
+
+            return $mesasFormateadas;
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener mesas: ' . $e->getMessage());
+            return [];
+        }
     }
 
     /**
@@ -261,14 +343,29 @@ class Mesero extends BaseController
      */
     private function obtenerEstadisticas(): array
     {
-        $pedidos = $this->obtenerTodosPedidos();
-        $mesas = $this->obtenerMesas();
+        try {
+            $pedidos = $this->obtenerTodosPedidos();
+            $mesas = $this->obtenerMesas();
 
-        return [
-            'pedidos_activos' => count($pedidos),
-            'pedidos_listos' => count(array_filter($pedidos, fn($p) => $p['estado'] === 'listo')),
-            'mesas_ocupadas' => count(array_filter($mesas, fn($m) => $m['estado'] === 'ocupada')),
-            'mesas_disponibles' => count(array_filter($mesas, fn($m) => $m['estado'] === 'disponible'))
-        ];
+            $pedidosListos = array_filter($pedidos, fn($p) => $p['estado'] === 'listo');
+            $mesasOcupadas = array_filter($mesas, fn($m) => $m['estado'] === 'ocupada');
+            $mesasDisponibles = array_filter($mesas, fn($m) => $m['estado'] === 'disponible');
+
+            return [
+                'pedidos_activos' => count($pedidos),
+                'pedidos_listos' => count($pedidosListos),
+                'mesas_ocupadas' => count($mesasOcupadas),
+                'mesas_disponibles' => count($mesasDisponibles)
+            ];
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener estadisticas: ' . $e->getMessage());
+            return [
+                'pedidos_activos' => 0,
+                'pedidos_listos' => 0,
+                'mesas_ocupadas' => 0,
+                'mesas_disponibles' => 0
+            ];
+        }
     }
 }

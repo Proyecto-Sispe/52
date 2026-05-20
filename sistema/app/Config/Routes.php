@@ -241,16 +241,29 @@ $routes->group('facturas', static function ($routes) {
 
 // Vista del cocinero
 $routes->get('/cocina', 'Cocina::index', ['as' => 'vista_cocina']);
-$routes->post('/cocina/pedido/(:num)/listo', 'Cocina::marcarListo/$1', ['as' => 'marcar_pedido_listo']);
+$routes->post('/kitchen/order/(:num)/ready', 'Kitchen::markReady/$1', ['as' => 'mark_order_ready']);
+$routes->post('/kitchen/order/(:num)/take', 'Kitchen::takeOrder/$1', ['as' => 'take_order']);
+$routes->get('/cocina/pedido/(:num)/estado/(:alpha)', 'Cocina::cambiarEstado/$1/$2', ['as' => 'cocina_cambiar_estado']);
+$routes->get('/cocina/api/pedidos', 'Cocina::apiPedidos', ['as' => 'cocina_api_pedidos']);
 
 // Vista del mesero
 $routes->get('/mesero', 'Mesero::index', ['as' => 'vista_mesero']);
-$routes->get('/mesero/mesas', 'Mesero::mesas', ['as' => 'mesero_mesas']);
+$routes->get('/waiter/tables', 'Waiter::tables', ['as' => 'waiter_tables']);
+$routes->post('/waiter/order/(:num)/delivered', 'Waiter::markDelivery/$1', ['as' => 'mark_order_delivered']);
+$routes->get('/mesero/api/pedidos', 'Mesero::apiPedidos', ['as' => 'mesero_api_pedidos']);
+$routes->get('/mesero/api/notificaciones', 'Mesero::apiNotificaciones', ['as' => 'mesero_api_notificaciones']);
+$routes->post('/mesero/notificacion/(:num)/leida', 'Mesero::marcarNotificacionLeida/$1', ['as' => 'marcar_notificacion_leida']);
+
 
 // Vista del cliente
-$routes->get('/cliente', 'Cliente::index', ['as' => 'vista_cliente']);
+$routes->get('/client', 'Client::index', ['as' => 'client_view']);
+$routes->post('/cliente/acceso', 'Cliente::acceso', ['as' => 'cliente_acceso']);
 $routes->get('/cliente/menu', 'Cliente::menu', ['as' => 'cliente_menu']);
-$routes->get('/cliente/pedidos', 'Cliente::pedidos', ['as' => 'cliente_pedidos']);
+$routes->get('/client/orders', 'Client::orders', ['as' => 'client_orders']);
+$routes->post('/customer/add-product', 'Customer::addProduct', ['as' => 'customer_add_product']);
+$routes->post('/cliente/confirmar-pedido', 'Cliente::confirmarPedido', ['as' => 'cliente_confirmar_pedido']);
+$routes->get('/cliente/api/pedidos', 'Cliente::apiPedidos', ['as' => 'cliente_api_pedidos']);
+$routes->get('/cliente/salir', 'Cliente::salir', ['as' => 'cliente_salir']);
 
 // ==========================================
 // RUTAS API (Endpoints JSON)

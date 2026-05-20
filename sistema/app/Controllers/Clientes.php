@@ -2,6 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\PedidoModel;
+use App\Models\MesaModel;
+use App\Models\ProductoModel;
+use App\Models\CategoriaModel;
+use App\Models\NotificacionModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use Exception;
 
@@ -11,6 +16,27 @@ use Exception;
  */
 class Cliente extends BaseController
 {
+    /**
+     * Modelos
+     */
+    protected PedidoModel $pedidoModel;
+    protected MesaModel $mesaModel;
+    protected ProductoModel $productoModel;
+    protected CategoriaModel $categoriaModel;
+    protected NotificacionModel $notificacionModel;
+
+    /**
+     * Constructor - Inicializa los modelos
+     */
+    public function __construct()
+    {
+        $this->pedidoModel = new PedidoModel();
+        $this->mesaModel = new MesaModel();
+        $this->productoModel = new ProductoModel();
+        $this->categoriaModel = new CategoriaModel();
+        $this->notificacionModel = new NotificacionModel();
+    }
+
     /**
      * Verifica si el usuario tiene sesion activa
      * @return bool
@@ -27,7 +53,23 @@ class Cliente extends BaseController
     private function esCliente(): bool
     {
         $rol = session('rol') ?? '';
-        return in_array($rol, ['cliente', 'mesa', 'admin']);
+        return in_array($rol, ['client', 'Client', 'table', 'admin', 'Administrator']);
+    }
+
+    /**
+     * Registra actividad
+     * @param string $accion
+     * @param array $datos
+     */
+    private function registrarActividad(string $accion, array $datos = []): void
+    {
+        $log = [
+            'fecha' => date('Y-m-d H:i:s'),
+            'usuario_id' => session('id') ?? 'anonimo',
+            'accion' => $accion,
+            'datos' => json_encode($datos)
+        ];
+        log_message('info', 'Customer Activity: ' . json_encode($log));
     }
 
     /**
@@ -44,7 +86,9 @@ class Cliente extends BaseController
             return view('cliente_acceso');
         }
 
-        // Datos para la vista
+        $this->registrarActividad('customer_view');
+
+        // Datos para la vista desde la BD
         $datos = [
             'mesa' => session('mesa_numero') ?? 'N/A',
             'codigo_mesa' => $codigoMesa,
@@ -70,37 +114,33 @@ class Cliente extends BaseController
                 throw new Exception('Codigo de mesa invalido');
             }
 
+            // Verify code in DB
+            $sesionMesa = $this->mesaModel->verificarCodigoAcceso(strtoupper($codigo));
+
+            if ($sesionMesa === null) {
+                throw new Exception('Codigo de mesa no encontrado o expirado');
+            }
             // En produccion: verificar codigo en BD
             // $mesa = $this->mesaModel->verificarCodigo($codigo);
 
-            // Simulacion: codigo valido
-            $codigosValidos = [
-                'ABC123' => ['mesa' => 1, 'capacidad' => 4],
-                'DEF456' => ['mesa' => 2, 'capacidad' => 2],
-                'GHI789' => ['mesa' => 3, 'capacidad' => 6],
-                'JKL012' => ['mesa' => 4, 'capacidad' => 4],
-                'MNO345' => ['mesa' => 5, 'capacidad' => 8]
-            ];
-
-            $codigoUpper = strtoupper($codigo);
-            
-            if (!isset($codigosValidos[$codigoUpper])) {
-                throw new Exception('Codigo de mesa no encontrado');
-            }
-
             // Crear sesion de cliente
             session()->set([
-                'codigo_mesa' => $codigoUpper,
-                'mesa_numero' => $codigosValidos[$codigoUpper]['mesa'],
-                'mesa_capacidad' => $codigosValidos[$codigoUpper]['capacidad'],
+                'codigo_mesa' => strtoupper($code),
+                'mesa_numero' => $sesionMesa['id_mesa'],
+                'mesa_capacidad' => $sesionMesa['Capacidad'],
                 'logueado' => true,
                 'rol' => 'mesa',
-                'nombre' => 'Mesa ' . $codigosValidos[$codigoUpper]['mesa']
+                'nombre_mesa' => 'Mesa ' . $sesionMesa['id_mesa']
+            ]);
+
+            $this->registrarActividad('acceso_mesa', [
+                'codigo' => $codigo,
+                'mesa' => $sessionMesa['table_id']
             ]);
 
             return redirect()->to('/cliente');
 
-        } catch (Exception $e) {
+            catch (Exception e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/cliente');
         }
@@ -112,12 +152,15 @@ class Cliente extends BaseController
      */
     public function menu()
     {
+        $this->registrarActividad('vista_menu');
+        
         $datos = [
             'categorias' => $this->obtenerCategorias(),
-            'productos' => $this->obtenerProductos()
+            'productos' => $this->obtenerProductos(),
+            'productosAgrupados' => $this->productoModel->obtenerAgrupadosPorCategoria()
         ];
 
-        return view('cliente_menu', $datos);
+        return view('menu', $datos);
     }
 
     /**
@@ -149,13 +192,54 @@ class Cliente extends BaseController
                 throw new Exception('Producto no especificado');
             }
 
-            // En produccion: guardar en BD
-            // $this->pedidoModel->agregarProducto($productoId, $cantidad, $comentario);
+            $mesaNumber = session('mesa_numero');
+            if (!$mesaNumero) {
+                throw new Exception('No hay mesa asignada');
+            }
+
+            // Verificar si hay un pedido activo para esta mesa
+            $pedidosActivos = $this->pedidoModel->obtenerPorMesa($mesaNumero);
+            $pedidoId = null;
+
+            if (!empty($pedidosActivos)) {
+                // Usar el primer pedido activo
+                $pedidoId = $pedidosActivos[0]['id_pedido'];
+            } else {
+                // Crear nuevo pedido
+                $meseroId = 1053804357; // ID del mesero por defecto (se puede mejorar)
+                $pedidoId = $this->pedidoModel->crearPedido([
+                    'id_mesa' => $mesaNumero,
+                    'mesero_id_usuario' => $meseroId,
+                    'mesero_tipo_doc' => 1,
+                    'prioridad' => PedidoModel::PRIORIDAD_NORMAL
+                ]);
+
+                if (!$pedidoId) {
+                    throw new Exception('Error al crear el pedido');
+                }
+
+                // Notificar nuevo pedido a cocina
+                $this->notificacionModel->notificarNuevoPedido($mesaNumero, $pedidoId);
+            }
+
+            // Agregar producto al pedido
+            $resultado = $this->pedidoModel->agregarProducto($pedidoId, $productoId, $cantidad, $comentario);
+
+            if (!$resultado) {
+                throw new Exception('Error al agregar el producto');
+            }
+
+            $this->registrarActividad('agregar_producto', [
+                'pedido_id' => $pedidoId,
+                'producto_id' => $productoId,
+                'cantidad' => $cantidad
+            ]);
 
             return $this->response->setJSON([
                 'error' => false,
                 'mensaje' => 'Producto agregado al pedido',
                 'producto_id' => $productoId,
+                'pedido_id' => $pedidoId,
                 'cantidad' => $cantidad
             ]);
 
@@ -179,14 +263,29 @@ class Cliente extends BaseController
             if (!$mesa) {
                 throw new Exception('No hay mesa asignada');
             }
+            
+            // Get active order
+            $pedidosActivos = $this->pedidoModel->obtenerPorMesa($mesa);
 
-            // En produccion: crear pedido en BD
-            // $this->pedidoModel->crearPedido($mesa, $productos);
+            if (empty($pedidosActivos)) {
+                throw new Exception('No hay pedidos activos para confirmar');
+            }
+
+            $pedidoId = $pedidosActivos[0]['id_pedido'];
+
+            // Notificar a cocina
+            $this->notificacionModel->notificarNuevoPedido($mesa, $pedidoId);
+
+            $this->registrarActividad('confirmar_pedido', [
+                'pedido_id' => $pedidoId,
+                'mesa' => $mesa
+            ]);
+
 
             return $this->response->setJSON([
                 'error' => false,
                 'mensaje' => 'Pedido enviado a cocina',
-                'pedido_id' => rand(100, 999)
+                'pedido_id' => $pedidoId
             ]);
 
         } catch (Exception $e) {
@@ -222,101 +321,133 @@ class Cliente extends BaseController
     }
 
     /**
-     * Obtiene categorias del menu
+     * Obtiene categorias del menu desde la BD
      * @return array
      */
     private function obtenerCategorias(): array
     {
-        return [
-            ['id' => 1, 'nombre' => 'Entradas', 'icono' => 'appetizer'],
-            ['id' => 2, 'nombre' => 'Platos Fuertes', 'icono' => 'main'],
-            ['id' => 3, 'nombre' => 'Hamburguesas', 'icono' => 'burger'],
-            ['id' => 4, 'nombre' => 'Pizzas', 'icono' => 'pizza'],
-            ['id' => 5, 'nombre' => 'Ensaladas', 'icono' => 'salad'],
-            ['id' => 6, 'nombre' => 'Bebidas', 'icono' => 'drink'],
-            ['id' => 7, 'nombre' => 'Postres', 'icono' => 'dessert']
-        ];
+        try {
+            $categorias = $this->categoriaModel->obtenerTodas();
+            
+            // Agregar iconos para cada categoria
+            $iconos = [
+                'Hamburguesas' => 'burger',
+                'Perros Calientes' => 'hotdog',
+                'Salchipapa' => 'fries',
+                'Bebidas' => 'drink',
+                'Postres' => 'dessert',
+                'Entradas' => 'appetizer'
+            ];
+
+            foreach ($categorias as &$categoria) {
+                $categoria['icono'] = $iconos[$categoria['nom_categoria']] ?? 'default';
+            }
+
+            return $categorias;
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener categorias: ' . $e->getMessage());
+            return [];
+        }
     }
 
     /**
-     * Obtiene productos del menu
+     * Obtiene productos del menu desde la BD
      * @return array
      */
     private function obtenerProductos(): array
     {
-        return [
-            // Entradas
-            ['id' => 1, 'nombre' => 'Nachos con Queso', 'categoria_id' => 1, 'precio' => 18000, 'descripcion' => 'Nachos crujientes con queso cheddar derretido', 'imagen' => 'nachos.jpg', 'disponible' => true],
-            ['id' => 2, 'nombre' => 'Aros de Cebolla', 'categoria_id' => 1, 'precio' => 15000, 'descripcion' => 'Aros de cebolla empanizados', 'imagen' => 'aros.jpg', 'disponible' => true],
+        try {
+            $products = $this->productModel->getAll();
             
-            // Platos Fuertes
-            ['id' => 3, 'nombre' => 'Bandeja Paisa', 'categoria_id' => 2, 'precio' => 28000, 'descripcion' => 'Tradicional bandeja paisa con todos sus ingredientes', 'imagen' => 'bandeja.jpg', 'disponible' => true],
-            ['id' => 4, 'nombre' => 'Lomo de Cerdo', 'categoria_id' => 2, 'precio' => 32000, 'descripcion' => 'Lomo de cerdo en salsa BBQ con papas', 'imagen' => 'lomo.jpg', 'disponible' => true],
-            
-            // Hamburguesas
-            ['id' => 5, 'nombre' => 'Hamburguesa Clasica', 'categoria_id' => 3, 'precio' => 22000, 'descripcion' => 'Carne de res, lechuga, tomate, cebolla', 'imagen' => 'hamburguesa.jpg', 'disponible' => true],
-            ['id' => 6, 'nombre' => 'Hamburguesa Doble', 'categoria_id' => 3, 'precio' => 28000, 'descripcion' => 'Doble carne, doble queso, tocino', 'imagen' => 'doble.jpg', 'disponible' => true],
-            
-            // Pizzas
-            ['id' => 7, 'nombre' => 'Pizza Pepperoni', 'categoria_id' => 4, 'precio' => 35000, 'descripcion' => 'Pepperoni, mozzarella, salsa de tomate', 'imagen' => 'pepperoni.jpg', 'disponible' => true],
-            ['id' => 8, 'nombre' => 'Pizza Hawaiana', 'categoria_id' => 4, 'precio' => 35000, 'descripcion' => 'Jamon, pina, mozzarella', 'imagen' => 'hawaiana.jpg', 'disponible' => true],
-            
-            // Ensaladas
-            ['id' => 9, 'nombre' => 'Ensalada Caesar', 'categoria_id' => 5, 'precio' => 22000, 'descripcion' => 'Lechuga romana, pollo, crutones, parmesano', 'imagen' => 'caesar.jpg', 'disponible' => true],
-            
-            // Bebidas
-            ['id' => 10, 'nombre' => 'Gaseosa', 'categoria_id' => 6, 'precio' => 5000, 'descripcion' => 'Coca-Cola, Sprite, Fanta', 'imagen' => 'gaseosa.jpg', 'disponible' => true],
-            ['id' => 11, 'nombre' => 'Jugo Natural', 'categoria_id' => 6, 'precio' => 8000, 'descripcion' => 'Naranja, limon, maracuya', 'imagen' => 'jugo.jpg', 'disponible' => true],
-            
-            // Postres
-            ['id' => 12, 'nombre' => 'Brownie con Helado', 'categoria_id' => 7, 'precio' => 15000, 'descripcion' => 'Brownie caliente con helado de vainilla', 'imagen' => 'brownie.jpg', 'disponible' => true]
-        ];
+        // Format for view
+            $productosFormateados = [];
+            foreach ($productos as $producto) {
+                $productosFormateados[] = [
+                    'id' => $producto['id_menu'],
+                    'nombre' => $producto['Productos'],
+                    'categoria_id' => $producto['pkfk_id_categoria'],
+                    'categoria' => $producto['categoria_nombre'],
+                    'precio' => $producto['Precio'],
+                    'descripcion' => $producto['descripcion'],
+                    'disponible' => true,
+                    'imagen' => strtolower(str_replace(' ', '_', $producto['Productos'])) . '.jpg'
+                ];
+            }
+
+            return $productosFormateados;
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener productos: ' . $e->getMessage());
+            return [];
+        }
     }
 
     /**
-     * Obtiene los pedidos del cliente actual
+     * Obtiene los pedidos del cliente actual desde la BD
      * @return array
      */
     private function obtenerMisPedidos(): array
     {
-        // En produccion: obtener de BD filtrado por mesa
-        return [
-            [
-                'id' => 1,
-                'productos' => [
-                    ['nombre' => 'Hamburguesa Clasica', 'cantidad' => 2, 'precio' => 22000, 'subtotal' => 44000],
-                    ['nombre' => 'Papas Fritas', 'cantidad' => 1, 'precio' => 12000, 'subtotal' => 12000]
-                ],
-                'estado' => 'preparacion',
-                'hora' => date('H:i', strtotime('-10 minutes')),
-                'subtotal' => 56000
-            ],
-            [
-                'id' => 2,
-                'productos' => [
-                    ['nombre' => 'Gaseosa', 'cantidad' => 2, 'precio' => 5000, 'subtotal' => 10000]
-                ],
-                'estado' => 'listo',
-                'hora' => date('H:i', strtotime('-15 minutes')),
-                'subtotal' => 10000
-            ]
-        ];
+        try {
+            $mesaNumero = session('mesa_numero');
+            
+            if (!$mesaNumero) {
+                return [];
+            }
+
+            $pedidos = $this->pedidoModel->obtenerPorMesa($mesaNumero);
+            
+            // Formatear para la vista
+            $pedidosFormateados = [];
+            foreach ($pedidos as $pedido) {
+                $productos = [];
+                foreach ($pedido['detalles'] as $detalle) {
+                    $productos[] = [
+                        'nombre' => $detalle['producto_nombre'],
+                        'cantidad' => $detalle['cantidad'],
+                        'precio' => $detalle['precio_unitario'],
+                        'subtotal' => $detalle['valor_venta']
+                    ];
+                }
+
+                $pedidosFormateados[] = [
+                    'id' => $pedido['id_pedido'],
+                    'productos' => $productos,
+                    'estado' => $pedido['estado'],
+                    'hora' => date('H:i', strtotime($pedido['fecha_pedido'])),
+                    'subtotal' => $pedido['total']
+                ];
+            }
+
+            return $pedidosFormateados;
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al obtener mis pedidos: ' . $e->getMessage());
+            return [];
+        }
     }
 
     /**
      * Calcula el total de la cuenta
-     * @return int
+     * @return float
      */
-    private function calcularTotalCuenta(): int
+    private function calcularTotalCuenta(): float
     {
-        $pedidos = $this->obtenerMisPedidos();
-        $total = 0;
+        try {
+            $pedidos = $this->obtenerMisPedidos();
+            $total = 0;
 
-        foreach ($pedidos as $pedido) {
-            $total += $pedido['subtotal'];
+            foreach ($pedidos as $pedido) {
+                $total += $pedido['subtotal'];
+            }
+
+            return $total;
+
+        } catch (Exception $e) {
+            log_message('error', 'Error al calcular total: ' . $e->getMessage());
+            return 0;
         }
-
-        return $total;
     }
 
     /**
@@ -325,6 +456,10 @@ class Cliente extends BaseController
      */
     public function salir()
     {
+        $this->registerActivity('exit_client', [
+            'mesa' => session('mesa_numero')
+        ]);
+
         session()->remove(['codigo_mesa', 'mesa_numero', 'mesa_capacidad']);
         
         if (session('rol') === 'mesa') {
