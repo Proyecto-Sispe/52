@@ -1,7 +1,6 @@
 <?php
 /**
  * Vista para Agregar Nueva Factura
- * Sistema SISPE - CodeIgniter 4
  */
 
 // Obtener datos de sesion
